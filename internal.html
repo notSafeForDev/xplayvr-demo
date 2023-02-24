@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>XPlayVR - Pre Beta</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <div>
+            <span>Force VR Tutorial</span>
+            <input type="checkbox" class="forceTutorialCheckbox">
+        </div>
+        <div>
+            <span>Enable Dev Tools</span>
+            <input type="checkbox" class="enableDevToolsCheckbox">
+        </div>
+        <div class="grid">
+            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=haley-bunnycdn" target="_blank">
+                <img src="public/Haley Spades Thumbnail 5.png">
+                <span>Strip 'n Stroke with Haley</span>
+            </a>
+            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=alex-rps-bunnycdn" target="_blank">
+                <img src="public/Alex Coal Thumbnail.png">
+                <span>Rock, Paper, Fuck! with Alex</span>
+            </a>
+            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=delilah-bunnycdn" target="_blank">
+                <img src="public/Delilah Day Thumbnail.png">
+                <span>What YOU Want with Delilah</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let linkElements = Array.from(document.getElementsByTagName("a"));
+        let inputElements = Array.from(document.getElementsByTagName("input"));
+
+        let forceTutorialCheckbox = document.getElementsByClassName("forceTutorialCheckbox")[0];
+        let enableDevToolsCheckbox = document.getElementsByClassName("enableDevToolsCheckbox")[0];
+
+        let updateUrls = () => {
+            linkElements.forEach(element => {
+                element.href = element.originalHref;
+                if (window.location.search.length > 0) {
+                    element.href += "&" + window.location.search.substring(1);
+                }
+                element.href += "&tutorial=" + forceTutorialCheckbox.checked;
+                element.href += "&dev=" + enableDevToolsCheckbox.checked;
+            });
+        }
+
+        linkElements.forEach(element => element.originalHref = element.href + "");
+        inputElements.forEach(element => element.addEventListener("change", updateUrls));
+
+        updateUrls();
+    </script>
+</body>
+
+</html>
