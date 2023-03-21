@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="beta_style.css">
     <title>XPlayVR - Pre Beta</title>
     <link rel="icon" type="image/x-icon" href="./favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,26 +17,26 @@
 <body>
     <div class="content">
         <h1>XPlayVR Beta Playtest</h1>
-        <div>
+        <!-- <div>
             <span>Force VR Tutorial</span>
             <input type="checkbox" class="forceTutorialCheckbox">
         </div>
         <div>
             <span>Enable Dev Tools</span>
             <input type="checkbox" class="enableDevToolsCheckbox">
-        </div>
+        </div> -->
         <div class="grid">
-            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=haley-bunnycdn" target="_blank">
-                <img src="public/Haley Spades Thumbnail Beta.png">
-                <span>Strip 'n Stroke with Haley</span>
+            <a class="thumbnail" href="https://www.xplayvr.com/playbeta?game=haley-bunnycdn&code=beta" target="_blank">
+                <img src="public/Thumbnail Beta Haley Spades.png">
+                <span>Strip 'N Stroke - Haley Spades</span>
             </a>
-            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=alex-rps-bunnycdn" target="_blank">
-                <img src="public/Alex Coal Thumbnail Beta.png">
-                <span>Rock, Paper, Fuck! with Alex</span>
+            <a class="thumbnail" href="https://www.xplayvr.com/playbeta?game=delilah-bunnycdn&code=beta" target="_blank">
+                <img src="public/Thumbnail Beta Delilah Day.png">
+                <span>What YOU Want - Delilah Day</span>
             </a>
-            <a class="thumbnail" href="https://www.xplayvr.com/internalplay?game=delilah-bunnycdn" target="_blank">
-                <img src="public/Delilah Day Thumbnail Beta.png">
-                <span>What YOU Want with Delilah</span>
+            <a class="thumbnail" href="https://www.xplayvr.com/playbeta?game=alex-rps-bunnycdn&code=beta" target="_blank">
+                <img src="public/Thumbnail Beta Alex Coal.png">
+                <span>Rock Paper Fuck! - Alex Coal</span>
             </a>
         </div>
     </div>
@@ -44,8 +45,8 @@
         let linkElements = Array.from(document.getElementsByTagName("a"));
         let inputElements = Array.from(document.getElementsByTagName("input"));
 
-        let forceTutorialCheckbox = document.getElementsByClassName("forceTutorialCheckbox")[0];
-        let enableDevToolsCheckbox = document.getElementsByClassName("enableDevToolsCheckbox")[0];
+        // let forceTutorialCheckbox = document.getElementsByClassName("forceTutorialCheckbox")[0];
+        // let enableDevToolsCheckbox = document.getElementsByClassName("enableDevToolsCheckbox")[0];
 
         let updateUrls = () => {
             linkElements.forEach(element => {
@@ -53,8 +54,8 @@
                 if (window.location.search.length > 0) {
                     element.href += "&" + window.location.search.substring(1);
                 }
-                element.href += "&tutorial=" + forceTutorialCheckbox.checked;
-                element.href += "&dev=" + enableDevToolsCheckbox.checked;
+                // element.href += "&tutorial=" + forceTutorialCheckbox.checked;
+                // element.href += "&dev=" + enableDevToolsCheckbox.checked;
             });
         }
 
