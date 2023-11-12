@@ -37,7 +37,11 @@
             const placeholder = document.getElementById("xplayvr-player-placeholder");
             const player = document.createElement("xplayvr-player");
             player.setAttribute("height-in-percentage", "1");
-            player.setAttribute("instructions", "/public/" + instructionsName + ".json");
+            if (window.location.origin === "https://notsafefordev.github.io") {
+                player.setAttribute("instructions", "/xplayvr-demo/public/" + instructionsName + ".json");
+            } else {
+                player.setAttribute("instructions", "/public/" + instructionsName + ".json");
+            }
             placeholder.appendChild(player);
         });
     </script>
