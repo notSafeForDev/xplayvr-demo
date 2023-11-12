@@ -1,0 +1,845 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": true,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": true
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_4K.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_2K.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_2K_2D.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_1K_2D.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "https://nyc3.digitaloceanspaces.com/video-player/XPlayVR/games/delilah_day/XPlayVR_Delilah_Day.csv",
+        "sounds": [],
+        "music": []
+    },
+    "postProcessing": [],
+    "states": {},
+    "predefinedEvents": {},
+    "predefinedOutputs": {},
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:23.7"
+        },
+        {
+            "name": "intro_continue",
+            "start": "00:23.7",
+            "end": "00:50",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "ready"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "intro_loop",
+            "start": "00:50",
+            "end": "02:36.8",
+            "loop": true,
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "ready"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ready_without_strip",
+            "start": "02:56.1",
+            "end": "03:26.4"
+        },
+        {
+            "name": "ready",
+            "start": "03:27",
+            "end": "04:29",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_tease_2"
+                }
+            ]
+        },
+        {
+            "name": "q_ride_reverse",
+            "start": "04:33.9",
+            "end": "04:51"
+        },
+        {
+            "name": "q_ride_reverse_2",
+            "start": "04:57.9",
+            "end": "05:08",
+            "events": [
+                {
+                    "start": "00:05:03",
+                    "end": "00:05:07",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride_reverse"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:05:03",
+                    "end": "00:05:07",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_ride_reverse_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_ride_reverse_2_no",
+            "start": "05:08",
+            "end": "05:14",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride"
+                }
+            ]
+        },
+        {
+            "name": "q_ride",
+            "start": "05:26",
+            "end": "05:41.8",
+            "events": [
+                {
+                    "start": "00:05:34",
+                    "end": "00:05:40",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:05:34",
+                    "end": "00:05:40",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_ride_2_no"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:05:41",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_ride_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_ride_yes",
+            "start": "05:41.8",
+            "end": "05:45.5"
+        },
+        {
+            "name": "q_ride_cum",
+            "start": "05:56.1",
+            "end": "06:12.7"
+        },
+        {
+            "name": "r_ride_cum_no",
+            "start": "06:12.7",
+            "end": "06:18.8"
+        },
+        {
+            "name": "q_ride_2",
+            "start": "06:28",
+            "end": "06:42.7",
+            "events": [
+                {
+                    "start": "06:37",
+                    "end": "06:42",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride"
+                        }
+                    ]
+                },
+                {
+                    "start": "06:37",
+                    "end": "06:42",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_ride_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_ride_2_no",
+            "start": "06:42.7",
+            "end": "06:50.1",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride"
+                }
+            ]
+        },
+        {
+            "name": "q_tease",
+            "start": "07:00.8",
+            "end": "07:19.4",
+            "events": [
+                {
+                    "start": "00:07:11",
+                    "end": "00:07:18",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_tease"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:07:11",
+                    "end": "00:07:18",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_tease_2_no"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "r_tease_2_no"
+                }
+            ]
+        },
+        {
+            "name": "r_tease_yes",
+            "start": "07:19.4",
+            "end": "07:23.5"
+        },
+        {
+            "name": "q_tease_2",
+            "start": "07:42",
+            "end": "07:59",
+            "events": [
+                {
+                    "start": "00:07:52.5",
+                    "end": "00:07:57",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_tease"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:07:52.5",
+                    "end": "00:07:57",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_tease_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_tease_2_no",
+            "start": "07:59",
+            "end": "08:06",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_blowjob"
+                }
+            ]
+        },
+        {
+            "name": "q_tease_ass",
+            "start": "08:17.4",
+            "end": "08:26.6"
+        },
+        {
+            "name": "r_tease_ass_yes",
+            "start": "08:26.6",
+            "end": "08:35"
+        },
+        {
+            "name": "q_hotdogging",
+            "start": "08:40.9",
+            "end": "08:52.4",
+            "events": [
+                {
+                    "start": "00:08:45",
+                    "end": "00:08:51",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_hotdogging"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:08:45",
+                    "end": "00:08:51",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_hotdogging_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_hotdogging_no",
+            "start": "08:52.4",
+            "end": "09:00.6",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_grind"
+                }
+            ]
+        },
+        {
+            "name": "q_grind",
+            "start": "09:08.1",
+            "end": "09:17.2"
+        },
+        {
+            "name": "r_grind_yes",
+            "start": "09:17.1",
+            "end": "09:25.3"
+        },
+        {
+            "name": "q_rub",
+            "start": "09:42.6",
+            "end": "09:50.5",
+            "events": [
+                {
+                    "start": "09:47",
+                    "end": "09:50",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_grind"
+                        }
+                    ]
+                },
+                {
+                    "start": "09:47",
+                    "end": "09:50",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_rub_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_rub_no",
+            "start": "09:50.5",
+            "end": "10:01.9",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride"
+                }
+            ]
+        },
+        {
+            "name": "s_handjob",
+            "start": "10:11.3",
+            "end": "13:27.5",
+            "events": [
+                {
+                    "start": "10:32",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_handjob_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_handjob_stop",
+            "start": "13:27.5",
+            "end": "13:40.2",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_hotdogging"
+                }
+            ]
+        },
+        {
+            "name": "s_footjob",
+            "start": "13:45.7",
+            "end": "16:50.8",
+            "events": [
+                {
+                    "start": "14:22",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_footjob_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_footjob_stop",
+            "start": "16:50.8",
+            "end": "17:12",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_rub"
+                }
+            ]
+        },
+        {
+            "name": "s_ride_reverse",
+            "start": "17:14.3",
+            "end": "19:19.3",
+            "events": [
+                {
+                    "start": "18:03",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride_reverse_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_ride_reverse_stop",
+            "start": "19:19.3",
+            "end": "19:48.2",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_footjob_2"
+                }
+            ]
+        },
+        {
+            "name": "s_ride",
+            "start": "19:48.6",
+            "end": "21:51",
+            "events": [
+                {
+                    "start": "20:29",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_ride_stop",
+            "start": "21:51",
+            "end": "22:22.2",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_tease_2"
+                }
+            ]
+        },
+        {
+            "name": "s_blowjob",
+            "start": "22:23.9",
+            "end": "25:10.7",
+            "events": [
+                {
+                    "start": "22:46",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_blowjob_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_blowjob_stop",
+            "start": "25:10.7",
+            "end": "25:35.1",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_ride_reverse_2"
+                }
+            ]
+        },
+        {
+            "name": "s_tease",
+            "start": "25:51.5",
+            "end": "27:19.7",
+            "events": [
+                {
+                    "start": "26:06",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_tease_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_tease_stop",
+            "start": "27:19.7",
+            "end": "27:40.2",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_footjob_2"
+                }
+            ]
+        },
+        {
+            "name": "s_grind",
+            "start": "27:45.2",
+            "end": "29:44.2",
+            "events": [
+                {
+                    "start": "28:18",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_grind_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_grind_stop",
+            "start": "29:44.2",
+            "end": "30:05.3",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_ride_2"
+                }
+            ]
+        },
+        {
+            "name": "s_hotdogging",
+            "start": "30:14",
+            "end": "31:52.1",
+            "events": [
+                {
+                    "start": "30:37",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_hotdogging_stop",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_hotdogging_stop",
+            "start": "31:52.1",
+            "end": "32:08.6",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_blowjob_2"
+                }
+            ]
+        },
+        {
+            "name": "q_blowjob",
+            "start": "32:12.8",
+            "end": "32:23.4"
+        },
+        {
+            "name": "r_blowjob_yes",
+            "start": "32:23.4",
+            "end": "32:26.8"
+        },
+        {
+            "name": "q_blowjob_2",
+            "start": "32:30",
+            "end": "32:39.4",
+            "events": [
+                {
+                    "start": "32:36",
+                    "end": "32:39.4",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_blowjob"
+                        }
+                    ]
+                },
+                {
+                    "start": "32:36",
+                    "end": "32:39.4",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_blowjob_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_blowjob_2_no",
+            "start": "32:39.4",
+            "end": "32:45.4",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_handjob"
+                }
+            ]
+        },
+        {
+            "name": "q_footjob",
+            "start": "32:49.2",
+            "end": "33:05.1"
+        },
+        {
+            "name": "r_footjob_yes",
+            "start": "33:05.1",
+            "end": "33:09.9"
+        },
+        {
+            "name": "q_footjob_2",
+            "start": "33:16.4",
+            "end": "33:27.6",
+            "events": [
+                {
+                    "start": "33:22",
+                    "end": "33:26.6",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_footjob"
+                        }
+                    ]
+                },
+                {
+                    "start": "33:22",
+                    "end": "33:26.6",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "r_footjob_2_no"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "r_footjob_2_no",
+            "start": "33:27.6",
+            "end": "33:34.5",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_handjob"
+                }
+            ]
+        }
+    ],
+    "shapes": []
+}

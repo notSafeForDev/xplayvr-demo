@@ -1,0 +1,666 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": false,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": false
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_4k.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k_2D.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_1k_2D.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k.csv",
+        "sounds": [],
+        "music": []
+    },
+    "postProcessing": [],
+    "states": {
+        "sceneIndex": 0,
+        "stopCount": 0,
+        "lost": false,
+        "exitedGame": false
+    },
+    "predefinedEvents": {
+        "stop": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "condition": "stopCount === 0",
+                    "type": "changeScene",
+                    "scene": "stop_1"
+                },
+                {
+                    "condition": "stopCount === 1",
+                    "type": "changeScene",
+                    "scene": "stop_2"
+                },
+                {
+                    "condition": "stopCount === 2",
+                    "type": "changeScene",
+                    "scene": "stop_3"
+                },
+                {
+                    "condition": "stopCount === 3",
+                    "type": "changeScene",
+                    "scene": "stop_4"
+                }
+            ]
+        },
+        "continue": {
+            "outputs": [
+                {
+                    "condition": "sceneIndex === 0",
+                    "type": "changeScene",
+                    "scene": "joi_2"
+                },
+                {
+                    "condition": "sceneIndex === 1",
+                    "type": "changeScene",
+                    "scene": "joi_3"
+                },
+                {
+                    "condition": "sceneIndex === 2",
+                    "type": "changeScene",
+                    "scene": "joi_4"
+                },
+                {
+                    "condition": "sceneIndex === 3",
+                    "type": "changeScene",
+                    "scene": "joi_5"
+                },
+                {
+                    "condition": "sceneIndex === 4",
+                    "type": "changeScene",
+                    "scene": "joi_6"
+                },
+                {
+                    "condition": "sceneIndex === 5",
+                    "type": "changeScene",
+                    "scene": "joi_7"
+                },
+                {
+                    "condition": "sceneIndex === 6",
+                    "type": "changeScene",
+                    "scene": "joi_8"
+                },
+                {
+                    "condition": "sceneIndex === 7",
+                    "type": "changeScene",
+                    "scene": "checkpoint_continue"
+                }
+            ]
+        }
+    },
+    "predefinedOutputs": {
+        "incrementStopCount": {
+            "type": "updateNumberState",
+            "state": "stopCount",
+            "value": "stopCount + 1"
+        }
+    },
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:55",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "joi_1",
+                    "transition": "fadeToBlack",
+                    "duration": 1500
+                }
+            ]
+        },
+        {
+            "name": "stop_1",
+            "start": "00:56.5",
+            "end": "01:17",
+            "enterOutputs": [
+                {
+                    "predefined": "incrementStopCount"
+                }
+            ],
+            "events": [
+                {
+                    "start": "01:16.9",
+                    "predefined": "continue"
+                }
+            ]
+        },
+        {
+            "name": "stop_2",
+            "start": "01:18",
+            "end": "01:45",
+            "enterOutputs": [
+                {
+                    "predefined": "incrementStopCount"
+                }
+            ],
+            "events": [
+                {
+                    "start": "01:44.9",
+                    "predefined": "continue"
+                }
+            ]
+        },
+        {
+            "name": "stop_3",
+            "start": "01:45.8",
+            "end": "02:03",
+            "enterOutputs": [
+                {
+                    "predefined": "incrementStopCount"
+                }
+            ],
+            "events": [
+                {
+                    "start": "02:02.9",
+                    "predefined": "continue"
+                }
+            ]
+        },
+        {
+            "name": "stop_4",
+            "start": "02:04.2",
+            "end": "02:21.1",
+            "exitOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 0
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "lost",
+                    "value": true
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "stopped",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "stopped",
+            "start": "02:21.6",
+            "end": "02:21.9",
+            "enterOutputs": [
+                {
+                    "condition": "lost",
+                    "type": "showPopup",
+                    "title": "Too Bad!",
+                    "text": "Do you want to try again?\n\nGive a thumbs up or a thumbs down"
+                },
+                {
+                    "condition": "lost === false",
+                    "type": "showPopup",
+                    "title": "Congratulations!",
+                    "text": "You won!\n\nGive a thumbs up to exit"
+                }
+            ],
+            "events": [
+                {
+                    "condition": "lost === false && exitedGame === false",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsUp"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "exitedGame",
+                            "value": true
+                        },
+                        {
+                            "type": "hidePopup"
+                        },
+                        {
+                            "type": "exitGame"
+                        }
+                    ]
+                },
+                {
+                    "condition": "lost && exitedGame === false",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsUp"
+                    },
+                    "outputs": [
+                        {
+                            "type": "hidePopup"
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "stopCount",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateBooleanState",
+                            "state": "lost",
+                            "value": false
+                        },
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_1",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "condition": "lost && exitedGame === false",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsDown"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "exitedGame",
+                            "value": true
+                        },
+                        {
+                            "type": "hidePopup"
+                        },
+                        {
+                            "type": "exitGame"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "joi_1",
+            "start": "02:22",
+            "end": "03:26",
+            "events": [
+                {
+                    "predefined": "stop"
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "joi_2",
+            "start": "03:26",
+            "end": "04:21",
+            "events": [
+                {
+                    "predefined": "stop"
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "joi_3",
+            "start": "04:21",
+            "end": "05:19",
+            "events": [
+                {
+                    "predefined": "stop"
+                },
+                {
+                    "time": "05:18.9",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_4"
+                        }
+                    ]
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 2
+                }
+            ]
+        },
+        {
+            "name": "joi_4",
+            "start": "05:21.2",
+            "end": "05:45",
+            "events": [
+                {
+                    "predefined": "stop"
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "name": "joi_5",
+            "start": "05:45",
+            "end": "06:18.5",
+            "events": [
+                {
+                    "predefined": "stop"
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "name": "joi_6",
+            "start": "06:18.5",
+            "end": "07:09.5",
+            "events": [
+                {
+                    "predefined": "stop"
+                },
+                {
+                    "time": "07:09.4",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_7"
+                        }
+                    ]
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "name": "joi_7",
+            "start": "07:15.5",
+            "end": "08:34",
+            "events": [
+                {
+                    "predefined": "stop"
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 6
+                }
+            ]
+        },
+        {
+            "name": "joi_8",
+            "start": "08:34",
+            "end": "10:01.5",
+            "events": [
+                {
+                    "predefined": "stop"
+                },
+                {
+                    "time": "10:01.4",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "checkpoint",
+                            "transition": "fadeToBlack",
+                            "duration": 1500
+                        }
+                    ]
+                }
+            ],
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "sceneIndex",
+                    "value": 7
+                }
+            ]
+        },
+        {
+            "name": "checkpoint",
+            "start": "10:05.5",
+            "end": "10:14",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_9"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "checkpoint_continue",
+            "start": "10:14",
+            "end": "11:58",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_9"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "joi_9",
+            "start": "11:58",
+            "end": "13:07",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_10"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "joi_10",
+            "start": "13:07",
+            "end": "14:23",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_11"
+                        }
+                    ]
+                },
+                {
+                    "time": "14:22.9",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_11"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "joi_11",
+            "start": "14:25.5",
+            "end": "16:24",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "joi_12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "joi_12",
+            "start": "16:24",
+            "end": "17:03.5",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "countdown_continue"
+                        }
+                    ]
+                },
+                {
+                    "time": "17.03.4",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "countdown"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "countdown",
+            "start": "17:05",
+            "end": "17:15.5",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "cum"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "countdown_continue",
+            "start": "17:15.5",
+            "end": "18:12.5",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "cum"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cum",
+            "start": "18:12.5",
+            "end": "18:50",
+            "exitOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 0
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "stopped",
+                    "transition": "fadeToBlack",
+                    "duration": 2000
+                }
+            ]
+        }
+    ],
+    "shapes": []
+}

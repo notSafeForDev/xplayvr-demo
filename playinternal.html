@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>XPlayVR</title>
     <link rel="icon" type="image/x-icon" href="./favicon.png">
-    <script src="https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/release/bundle_internal_4.js"></script>
+    <script src="https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/release/bundle_internal_5.js"></script>
 </head>
 
 <body>
-    <xplayvr-player height-in-percentage="1"></xplayvr-player>
+    <div id="xplayvr-player-placeholder"></div>
+
     <style>
         body {
             margin: 0;
@@ -28,6 +29,18 @@
             height: 100vh;
         }
     </style>
+
+    <script>
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const instructionsName = urlSearchParams.get("instructions");
+        document.addEventListener("DOMContentLoaded", () => {
+            const placeholder = document.getElementById("xplayvr-player-placeholder");
+            const player = document.createElement("xplayvr-player");
+            player.setAttribute("height-in-percentage", "1");
+            player.setAttribute("instructions", "/instructions/" + instructionsName + ".json");
+            placeholder.appendChild(player);
+        });
+    </script>
 </body>
 
 </html>

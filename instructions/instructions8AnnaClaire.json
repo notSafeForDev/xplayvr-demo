@@ -1,0 +1,1423 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": false,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": false
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_2k_new.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_4k_new.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_1k_2D.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_2k_2D.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [
+            {
+                "id": "channels",
+                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_tv.mp4",
+                "queryParams": [],
+                "duration": "02:53:54",
+                "events": [
+                    {
+                        "start": "00:00:50",
+                        "end": "00:04:00",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:04:40",
+                        "end": "00:05:40",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "00:07:10",
+                        "end": "00:09:35",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "00:10:20",
+                        "end": "00:18:15",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:18:55",
+                        "end": "00:20:25",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "00:21:05",
+                        "end": "00:21:30",
+                        "predefined": "handjobOnTV"
+                    },
+                    {
+                        "start": "00:24:30",
+                        "end": "00:25:40",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:27:00",
+                        "end": "00:29:40",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "00:30:40",
+                        "end": "00:32:20",
+                        "predefined": "doggyOnTV"
+                    },
+                    {
+                        "start": "00:33:10",
+                        "end": "00:36:30",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:37:10",
+                        "end": "00:38:10",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "00:38:50",
+                        "end": "00:40:30",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "00:41:20",
+                        "end": "00:42:20",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:46:40",
+                        "end": "00:47:20",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "00:48:40",
+                        "end": "00:49:40",
+                        "predefined": "handjobOnTV"
+                    },
+                    {
+                        "start": "00:50:20",
+                        "end": "00:52:00",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "00:52:40",
+                        "end": "00:58:00",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "00:59:00",
+                        "end": "01:07:00",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "01:07:40",
+                        "end": "01:10:40",
+                        "predefined": "doggyOnTV"
+                    },
+                    {
+                        "start": "01:18:15",
+                        "end": "01:21:50",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "01:23:00",
+                        "end": "01:24:20",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "01:23:00",
+                        "end": "01:24:20",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "01:25:15",
+                        "end": "01:27:00",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "01:28:15",
+                        "end": "01:28:30",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "01:29:30",
+                        "end": "01:42:10",
+                        "predefined": "miscOnTV"
+                    },
+                    {
+                        "start": "01:47:20",
+                        "end": "01:50:30",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "01:51:15",
+                        "end": "01:54:15",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "01:55:00",
+                        "end": "01:55:15",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "01:56:10",
+                        "end": "01:58:50",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:00:35",
+                        "end": "02:00:45",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:01:25",
+                        "end": "02:01:40",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:04:00",
+                        "end": "02:04:20",
+                        "predefined": "handjobOnTV"
+                    },
+                    {
+                        "start": "02:05:10",
+                        "end": "02:05:40",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:06:20",
+                        "end": "02:08:00",
+                        "predefined": "doggyOnTV"
+                    },
+                    {
+                        "start": "02:08:45",
+                        "end": "02:09:15",
+                        "predefined": "handjobOnTV"
+                    },
+                    {
+                        "start": "02:09:20",
+                        "end": "02:11:50",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:12:30",
+                        "end": "02:13:50",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:14:15",
+                        "end": "02:17:45",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:22:20",
+                        "end": "02:24:00",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:26:25",
+                        "end": "02:28:10",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:29:40",
+                        "end": "02:31:40",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:32:40",
+                        "end": "02:35:30",
+                        "predefined": "doggyOnTV"
+                    },
+                    {
+                        "start": "02:39:30",
+                        "end": "02:40:10",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:41:00",
+                        "end": "02:42:30",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:42:50",
+                        "end": "02:43:50",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:44:40",
+                        "end": "02:45:45",
+                        "predefined": "doggyOnTV"
+                    },
+                    {
+                        "start": "02:46:20",
+                        "end": "02:47:50",
+                        "predefined": "blowjobOnTV"
+                    },
+                    {
+                        "start": "02:48:40",
+                        "end": "02:50:00",
+                        "predefined": "rideOnTV"
+                    },
+                    {
+                        "start": "02:51:30",
+                        "end": "02:52:40",
+                        "predefined": "rideOnTV"
+                    }
+                ]
+            }
+        ],
+        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/games/anna_claire/AnnaClaireClouds-AustinPierce-Xplay_game.csv",
+        "sounds": [],
+        "music": []
+    },
+    "postProcessing": [],
+    "states": {
+        "lookingAtTV": false,
+        "handjobOnTV": false,
+        "blowjobOnTV": false,
+        "rideOnTV": false,
+        "doggyOnTV": false,
+        "miscOnTV": false,
+        "changeChannelCooldown": 0,
+        "sexAfterChannelChangeCooldown": 0,
+        "sexCooldown": 0,
+        "readyForSex": false,
+        "channel": 0,
+        "lastPosition": -1
+    },
+    "predefinedEvents": {
+        "clearTVContent": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": false
+                }
+            ]
+        },
+        "handjobOnTV": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": true
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": false
+                }
+            ]
+        },
+        "blowjobOnTV": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": true
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": false
+                }
+            ]
+        },
+        "rideOnTV": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": true
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": false
+                }
+            ]
+        },
+        "doggyOnTV": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": true
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": false
+                }
+            ]
+        },
+        "miscOnTV": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "handjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "blowjobOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "rideOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "doggyOnTV",
+                    "value": false
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "miscOnTV",
+                    "value": true
+                }
+            ]
+        },
+        "updateReadyForSex": {
+            "outputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "readyForSex",
+                    "value": "lookingAtTV && sexCooldown <= 0 && sexAfterChannelChangeCooldown <= 0"
+                }
+            ]
+        },
+        "goToHandjobIfReady": {
+            "condition": "readyForSex && handjobOnTV && lastPosition !== 0",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_handjob",
+                    "requiresPreload": true
+                }
+            ]
+        },
+        "goToBlowjobIfReady": {
+            "condition": "readyForSex && blowjobOnTV && lastPosition !== 1",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_blowjob",
+                    "requiresPreload": true
+                }
+            ]
+        },
+        "goToRideIfReady": {
+            "condition": "readyForSex && rideOnTV && lastPosition !== 2",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_ride",
+                    "requiresPreload": true
+                }
+            ]
+        },
+        "goToDoggyIfReady": {
+            "condition": "readyForSex && doggyOnTV && lastPosition !== 3",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "q_doggy",
+                    "requiresPreload": true
+                }
+            ]
+        },
+        "goToSoloIfReady": {
+            "condition": "readyForSex && miscOnTV && lastPosition !== 4",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_solo_start",
+                    "requiresPreload": true
+                }
+            ]
+        }
+    },
+    "predefinedOutputs": {
+        "cooldownAfterSex": {
+            "type": "updateNumberState",
+            "state": "sexCooldown",
+            "value": 45
+        }
+    },
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:25"
+        },
+        {
+            "name": "intro_skip",
+            "start": "00:25",
+            "end": "00:32",
+            "events": [
+                {
+                    "time": "00:27.5",
+                    "outputs": [
+                        {
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "0 + ((systemTime + 0) % 1379)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "watch",
+            "start": "00:32",
+            "end": "03:20",
+            "loop": true,
+            "events": [
+                {
+                    "condition": "changeChannelCooldown <= 0",
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "remote"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "channel === 0",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "6240 + ((systemTime + 300) % 1100)"
+                        },
+                        {
+                            "condition": "channel === 1",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "4314 + ((systemTime + 500) % 1920)"
+                        },
+                        {
+                            "condition": "channel === 2",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "7344 + ((systemTime + 0) % 1000)"
+                        },
+                        {
+                            "condition": "channel === 3",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "2652 + ((systemTime + 900) % 1656)"
+                        },
+                        {
+                            "condition": "channel === 4",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "8350 + ((systemTime + 400) % 1053)"
+                        },
+                        {
+                            "condition": "channel === 5",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "1384 + ((systemTime + 700) % 1268)"
+                        },
+                        {
+                            "condition": "channel === 6",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "9414 + ((systemTime + 400) % 1010)"
+                        },
+                        {
+                            "condition": "channel === 7",
+                            "type": "addOverlay",
+                            "overlayID": "tv",
+                            "overlayVideoID": "channels",
+                            "time": "0 + ((systemTime + 0) % 1379)"
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "channel",
+                            "value": "(channel + 1) % 8"
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "changeChannelCooldown",
+                            "value": 2
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "sexAfterChannelChangeCooldown",
+                            "value": 15
+                        }
+                    ]
+                },
+                {
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "lookingAtTV",
+                            "value": false
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "changeChannelCooldown",
+                            "value": "changeChannelCooldown - systemDeltaTime"
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "sexAfterChannelChangeCooldown",
+                            "value": "sexAfterChannelChangeCooldown - systemDeltaTime"
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "sexCooldown",
+                            "value": "sexCooldown - systemDeltaTime"
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "look",
+                        "shape": "tv"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "lookingAtTV",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "predefined": "updateReadyForSex"
+                },
+                {
+                    "predefined": "goToHandjobIfReady"
+                },
+                {
+                    "predefined": "goToBlowjobIfReady"
+                },
+                {
+                    "predefined": "goToRideIfReady"
+                },
+                {
+                    "predefined": "goToDoggyIfReady"
+                },
+                {
+                    "predefined": "goToSoloIfReady"
+                },
+                {
+                    "predefined": "clearTVContent"
+                }
+            ]
+        },
+        {
+            "name": "q_solo",
+            "start": "06:00",
+            "end": "06:21"
+        },
+        {
+            "name": "q_solo_2",
+            "start": "06:26",
+            "end": "06:59",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_solo_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_solo_3",
+            "start": "07:05",
+            "end": "07:34"
+        },
+        {
+            "name": "q_solo_4",
+            "start": "07:39",
+            "end": "08:13"
+        },
+        {
+            "name": "q_handjob",
+            "start": "08:17",
+            "end": "08:37.5",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_handjob",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_softcore",
+            "start": "08:45.5",
+            "end": "09:08",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_handjob",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_handjob_wet",
+            "start": "09:15",
+            "end": "09:40.5",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_handjob",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_ride",
+            "start": "09:47",
+            "end": "10:09",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_ride_2",
+            "start": "10:16.5",
+            "end": "10:43",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_ride_3",
+            "start": "10:50.5",
+            "end": "11:18.5",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_ride_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_doggy",
+            "start": "11:23.5",
+            "end": "11:44",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_doggy_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_doggy_2",
+            "start": "11:52",
+            "end": "12:15",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_doggy_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_doggy_tweark",
+            "start": "12:22",
+            "end": "12:51",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_doggy_start",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_blowjob",
+            "start": "12:57",
+            "end": "13:21",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_blowjob",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "q_deepthroat",
+            "start": "13:27",
+            "end": "13:53",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_blowjob",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "s_solo_start",
+            "start": "13:58",
+            "end": "14:18"
+        },
+        {
+            "name": "s_solo",
+            "start": "14:18",
+            "end": "16:16",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_solo_end",
+                            "transition": "crossFade"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_solo_end",
+            "start": "16:16",
+            "end": "16:36",
+            "exitOutputs": [
+                {
+                    "predefined": "cooldownAfterSex"
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 4
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "watch",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "s_handjob_start",
+            "start": "16:39.2",
+            "end": "16:45"
+        },
+        {
+            "name": "s_handjob",
+            "start": "16:45",
+            "end": "18:50",
+            "events": [
+                {
+                    "start": "16:55",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_handjob_end",
+                            "transition": "crossFade"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_handjob_end",
+            "start": "18:50",
+            "end": "19:11",
+            "exitOutputs": [
+                {
+                    "predefined": "cooldownAfterSex"
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 0
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "watch",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "s_doggy_start",
+            "start": "19:15",
+            "end": "19:30"
+        },
+        {
+            "name": "s_doggy",
+            "start": "19:30",
+            "end": "21:50",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_doggy_end",
+                            "transition": "crossFade"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_doggy_end",
+            "start": "21:50",
+            "end": "22:07",
+            "exitOutputs": [
+                {
+                    "predefined": "cooldownAfterSex"
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 3
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "watch",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "s_ride_start",
+            "start": "22:10.5",
+            "end": "22:28"
+        },
+        {
+            "name": "s_ride",
+            "start": "22:28",
+            "end": "24:50",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_ride_end",
+                            "transition": "crossFade"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_ride_end",
+            "start": "24:50",
+            "end": "25:08",
+            "exitOutputs": [
+                {
+                    "predefined": "cooldownAfterSex"
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 2
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "watch",
+                    "transition": "crossFade"
+                }
+            ]
+        },
+        {
+            "name": "s_blowjob_start",
+            "start": "25:10.4",
+            "end": "25:17"
+        },
+        {
+            "name": "s_blowjob",
+            "start": "25:17",
+            "end": "27:20",
+            "events": [
+                {
+                    "start": "25:32",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_blowjob_end",
+                            "transition": "crossFade"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_blowjob_end",
+            "start": "27:20",
+            "end": "27:39",
+            "exitOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 1
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "watch"
+                }
+            ]
+        }
+    ],
+    "shapes": [
+        {
+            "id": "tv",
+            "type": "circle",
+            "isVisible": false,
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": -2.5,
+                    "y": 0.5,
+                    "z": 3.5,
+                    "size": 2
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "remote",
+            "type": "circle",
+            "isVisible": true,
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": -0.99,
+                    "y": -0.83,
+                    "z": 0.66,
+                    "size": 0.35
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        }
+    ],
+    "overlays": [
+        {
+            "id": "tv",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "leftEyeMaskColor": {
+                        "red": 163,
+                        "green": 143,
+                        "blue": 138
+                    },
+                    "rightEyeMaskColor": {
+                        "red": 161,
+                        "green": 143,
+                        "blue": 138
+                    },
+                    "leftEyeTransform": {
+                        "topLeft": {
+                            "x": -1.72,
+                            "y": -9.5
+                        },
+                        "topMiddle": {
+                            "x": 0,
+                            "y": 5.9
+                        },
+                        "topRight": {
+                            "x": 4.74,
+                            "y": -10.85
+                        },
+                        "bottomRight": {
+                            "x": 5.33,
+                            "y": 7.15
+                        },
+                        "bottomMiddle": {
+                            "x": 0,
+                            "y": -3.5
+                        },
+                        "bottomLeft": {
+                            "x": -1.97,
+                            "y": 9.5
+                        }
+                    },
+                    "rightEyeTransform": {
+                        "topLeft": {
+                            "x": -1.78,
+                            "y": -9.5
+                        },
+                        "topMiddle": {
+                            "x": 0,
+                            "y": 5.9
+                        },
+                        "topRight": {
+                            "x": 4.78,
+                            "y": -11.05
+                        },
+                        "bottomRight": {
+                            "x": 5.43,
+                            "y": 7.4
+                        },
+                        "bottomMiddle": {
+                            "x": 0,
+                            "y": -3.5
+                        },
+                        "bottomLeft": {
+                            "x": -2.03,
+                            "y": 9.5
+                        }
+                    }
+                },
+                {
+                    "time": "19:15"
+                },
+                {
+                    "time": "19:15",
+                    "leftEyeMaskColor": {
+                        "red": 172,
+                        "green": 152,
+                        "blue": 148
+                    },
+                    "rightEyeMaskColor": {
+                        "red": 172,
+                        "green": 152,
+                        "blue": 148
+                    },
+                    "leftEyeTransform": {
+                        "topLeft": {
+                            "x": 0.24,
+                            "y": -6.15
+                        },
+                        "topMiddle": {
+                            "x": 0.74,
+                            "y": 9.75
+                        },
+                        "topRight": {
+                            "x": -0.04,
+                            "y": -19
+                        },
+                        "bottomRight": {
+                            "x": 4.89,
+                            "y": 23.25
+                        },
+                        "bottomMiddle": {
+                            "x": 0,
+                            "y": -10.55
+                        },
+                        "bottomLeft": {
+                            "x": -2.69,
+                            "y": 7.8
+                        }
+                    },
+                    "rightEyeTransform": {
+                        "topLeft": {
+                            "x": 0.24,
+                            "y": -6.15
+                        },
+                        "topMiddle": {
+                            "x": 0.74,
+                            "y": 9.75
+                        },
+                        "topRight": {
+                            "x": -0.02,
+                            "y": -19.15
+                        },
+                        "bottomRight": {
+                            "x": 5.15,
+                            "y": 23.6
+                        },
+                        "bottomMiddle": {
+                            "x": 0,
+                            "y": -10.55
+                        },
+                        "bottomLeft": {
+                            "x": -2.83,
+                            "y": 7.8
+                        }
+                    }
+                },
+                {
+                    "time": "22:10"
+                },
+                {
+                    "time": "22:10",
+                    "leftEyeMaskColor": {
+                        "red": 173,
+                        "green": 151,
+                        "blue": 144
+                    },
+                    "rightEyeMaskColor": {
+                        "red": 173,
+                        "green": 151,
+                        "blue": 144
+                    },
+                    "leftEyeTransform": {
+                        "topLeft": {
+                            "x": -3.94,
+                            "y": -8.15
+                        },
+                        "topMiddle": {
+                            "x": 1.68,
+                            "y": 6.4
+                        },
+                        "topRight": {
+                            "x": 2.48,
+                            "y": -11.6
+                        },
+                        "bottomRight": {
+                            "x": -1.51,
+                            "y": 12
+                        },
+                        "bottomMiddle": {
+                            "x": 1.1,
+                            "y": -7.1
+                        },
+                        "bottomLeft": {
+                            "x": 0.77,
+                            "y": 8.8
+                        }
+                    },
+                    "rightEyeTransform": {
+                        "topLeft": {
+                            "x": -4.04,
+                            "y": -8.15
+                        },
+                        "topMiddle": {
+                            "x": 1.68,
+                            "y": 6.4
+                        },
+                        "topRight": {
+                            "x": 2.56,
+                            "y": -11.7
+                        },
+                        "bottomRight": {
+                            "x": -1.33,
+                            "y": 12.1
+                        },
+                        "bottomMiddle": {
+                            "x": 1.1,
+                            "y": -7.1
+                        },
+                        "bottomLeft": {
+                            "x": 0.73,
+                            "y": 8.8
+                        }
+                    }
+                },
+                {
+                    "time": "25:10.4"
+                },
+                {
+                    "time": "25:10.4",
+                    "leftEyeMaskColor": {
+                        "red": 164,
+                        "green": 140,
+                        "blue": 134
+                    },
+                    "rightEyeMaskColor": {
+                        "red": 164,
+                        "green": 144,
+                        "blue": 136
+                    },
+                    "leftEyeTransform": {
+                        "topLeft": {
+                            "x": -1.56,
+                            "y": -10.7
+                        },
+                        "topMiddle": {
+                            "x": 2.1,
+                            "y": 10.85
+                        },
+                        "topRight": {
+                            "x": 0.18,
+                            "y": -19.9
+                        },
+                        "bottomRight": {
+                            "x": 1.61,
+                            "y": 18.2
+                        },
+                        "bottomMiddle": {
+                            "x": 2.18,
+                            "y": -8.95
+                        },
+                        "bottomLeft": {
+                            "x": -3.31,
+                            "y": 11.45
+                        }
+                    },
+                    "rightEyeTransform": {
+                        "topLeft": {
+                            "x": -1.66,
+                            "y": -10.85
+                        },
+                        "topMiddle": {
+                            "x": 2.1,
+                            "y": 10.85
+                        },
+                        "topRight": {
+                            "x": 0.22,
+                            "y": -19.75
+                        },
+                        "bottomRight": {
+                            "x": 1.91,
+                            "y": 18.15
+                        },
+                        "bottomMiddle": {
+                            "x": 2.18,
+                            "y": -8.95
+                        },
+                        "bottomLeft": {
+                            "x": -3.41,
+                            "y": 11.6
+                        }
+                    }
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        }
+    ]
+}

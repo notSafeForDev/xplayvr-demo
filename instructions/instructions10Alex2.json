@@ -1,0 +1,1252 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": false,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": false
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal-2/AlexCoal-XPlayVR_2k_new.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal-2/AlexCoal-XPlayVR_4k_new.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal-2/AlexCoal-XPlayVR_2k_2D_new.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal-2/AlexCoal-XPlayVR_1k_2D_new.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "https://xplayvr.b-cdn.net/alex-coal-2/AlexCoal-XPlayVR_2k_new.csv",
+        "sounds": [],
+        "music": []
+    },
+    "postProcessing": [],
+    "states": {
+        "haveReturned": false,
+        "isObserving": false,
+        "observing": -1,
+        "observeDuration": 0,
+        "exitedGame": false
+    },
+    "predefinedEvents": {
+        "stopToReturn": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "condition": "haveReturned === false",
+                    "type": "changeScene",
+                    "scene": "options_return",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "condition": "haveReturned",
+                    "type": "changeScene",
+                    "scene": "options_return_short",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "stopToReturnShort": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "options_return_short",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "stopToObserve": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_observe",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "pointAtObserve": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "option_observe"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_observe_intro",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "lookAtObserve": {
+            "condition": "systemIsVR",
+            "input": {
+                "type": "shape",
+                "input": "look",
+                "shape": "option_observe"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_observe_intro",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "pointAtPillow": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "option_pillow"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_pillow",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "lookAtPillow": {
+            "condition": "systemIsVR",
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "option_pillow"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_pillow",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "pointAtToy": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "option_toy"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_joi_intro",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "lookAtToy": {
+            "condition": "systemIsVR",
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "option_toy"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "s_joi_intro",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        }
+    },
+    "predefinedOutputs": {},
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:21",
+            "events": [
+                {
+                    "time": "00:20.3",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 0
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "start": "00:20.3",
+                    "input": {
+                        "type": "shape",
+                        "input": "look",
+                        "shape": "door"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "options_intro",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:20.3",
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "door"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "options_intro",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "options_intro",
+            "start": "00:29.8",
+            "end": "00:55",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ]
+        },
+        {
+            "name": "options_intro_2",
+            "start": "00:55",
+            "end": "01:27",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "options_intro_skip"
+                        }
+                    ]
+                },
+                {
+                    "start": "01:06",
+                    "predefined": "pointAtObserve"
+                },
+                {
+                    "start": "01:06",
+                    "predefined": "lookAtObserve"
+                },
+                {
+                    "start": "01:15",
+                    "predefined": "pointAtPillow"
+                },
+                {
+                    "start": "01:15",
+                    "predefined": "lookAtPillow"
+                },
+                {
+                    "start": "01:21",
+                    "predefined": "pointAtToy"
+                },
+                {
+                    "start": "01:21",
+                    "predefined": "lookAtToy"
+                }
+            ]
+        },
+        {
+            "name": "options_intro_skip",
+            "start": "01:27",
+            "end": "01:31",
+            "events": [
+                {
+                    "predefined": "pointAtObserve"
+                },
+                {
+                    "predefined": "lookAtObserve"
+                },
+                {
+                    "predefined": "pointAtPillow"
+                },
+                {
+                    "predefined": "lookAtPillow"
+                },
+                {
+                    "predefined": "pointAtToy"
+                },
+                {
+                    "predefined": "lookAtToy"
+                }
+            ]
+        },
+        {
+            "name": "options_idle",
+            "start": "01:31",
+            "end": "01:40",
+            "loop": true,
+            "events": [
+                {
+                    "predefined": "pointAtObserve"
+                },
+                {
+                    "predefined": "lookAtObserve"
+                },
+                {
+                    "predefined": "pointAtPillow"
+                },
+                {
+                    "predefined": "lookAtPillow"
+                },
+                {
+                    "predefined": "pointAtToy"
+                },
+                {
+                    "predefined": "lookAtToy"
+                }
+            ]
+        },
+        {
+            "name": "options_return",
+            "start": "01:56",
+            "end": "02:02.4",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "haveReturned",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "name": "options_return_short",
+            "start": "02:02.4",
+            "end": "02:10",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ],
+            "events": [
+                {
+                    "start": "02:09.5",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 0
+                        }
+                    ]
+                },
+                {
+                    "predefined": "pointAtObserve"
+                },
+                {
+                    "predefined": "lookAtObserve"
+                },
+                {
+                    "predefined": "pointAtPillow"
+                },
+                {
+                    "predefined": "lookAtPillow"
+                },
+                {
+                    "predefined": "pointAtToy"
+                },
+                {
+                    "predefined": "lookAtToy"
+                }
+            ]
+        },
+        {
+            "name": "s_observe_intro",
+            "start": "02:10.5",
+            "end": "02:15",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "stopToReturnShort"
+                }
+            ]
+        },
+        {
+            "name": "s_observe",
+            "start": "02:15",
+            "end": "02:43",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "observeDuration",
+                    "value": 0
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "stopToReturn"
+                },
+                {
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "isObserving",
+                            "value": false
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_eyes",
+                        "input": "look"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "isObserving",
+                            "value": true
+                        },
+                        {
+                            "condition": "observing !== 0",
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observing",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": "observeDuration + systemDeltaTime"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIs2D",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_eyes",
+                        "input": "point"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_observe_eyes",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_boobs",
+                        "input": "look"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "isObserving",
+                            "value": true
+                        },
+                        {
+                            "condition": "observing !== 1",
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observing",
+                            "value": 1
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": "observeDuration + systemDeltaTime"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIs2D",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_boobs",
+                        "input": "point"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_observe_boobs",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_pussy",
+                        "input": "look"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "isObserving",
+                            "value": true
+                        },
+                        {
+                            "condition": "observing !== 2",
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observing",
+                            "value": 2
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": "observeDuration + systemDeltaTime"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIs2D",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_pussy",
+                        "input": "point"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_observe_pussy",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_feet",
+                        "input": "look"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "isObserving",
+                            "value": true
+                        },
+                        {
+                            "condition": "observing !== 3",
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": 0
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observing",
+                            "value": 3
+                        },
+                        {
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": "observeDuration + systemDeltaTime"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIs2D",
+                    "start": "02:20",
+                    "input": {
+                        "type": "shape",
+                        "shape": "observe_feet",
+                        "input": "point"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_observe_feet",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "outputs": [
+                        {
+                            "condition": "isObserving === false",
+                            "type": "updateNumberState",
+                            "state": "observeDuration",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "condition": "(observeDuration >= 4.5 && observing === 0) || (observeDuration >= 3 && observing > 0)",
+                    "outputs": [
+                        {
+                            "condition": "observing === 0",
+                            "type": "changeScene",
+                            "scene": "s_observe_eyes",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 1",
+                            "type": "changeScene",
+                            "scene": "s_observe_boobs",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 2",
+                            "type": "changeScene",
+                            "scene": "s_observe_pussy",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 3",
+                            "type": "changeScene",
+                            "scene": "s_observe_feet",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "start": "02:42.5",
+                    "outputs": [
+                        {
+                            "condition": "observing <= 0",
+                            "type": "changeScene",
+                            "scene": "s_observe_eyes",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 1",
+                            "type": "changeScene",
+                            "scene": "s_observe_boobs",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 2",
+                            "type": "changeScene",
+                            "scene": "s_observe_pussy",
+                            "transition": "fadeToBlack"
+                        },
+                        {
+                            "condition": "observing === 3",
+                            "type": "changeScene",
+                            "scene": "s_observe_feet",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_observe_eyes",
+            "start": "02:45",
+            "end": "03:45",
+            "events": [
+                {
+                    "predefined": "stopToObserve"
+                }
+            ]
+        },
+        {
+            "name": "s_observe_boobs",
+            "start": "03:45.6",
+            "end": "04:40",
+            "events": [
+                {
+                    "predefined": "stopToObserve"
+                }
+            ]
+        },
+        {
+            "name": "s_observe_pussy",
+            "start": "04:40",
+            "end": "05:57",
+            "events": [
+                {
+                    "predefined": "stopToObserve"
+                }
+            ]
+        },
+        {
+            "name": "s_observe_feet",
+            "start": "05:57.5",
+            "end": "06:44",
+            "events": [
+                {
+                    "predefined": "stopToObserve"
+                }
+            ]
+        },
+        {
+            "name": "s_pillow",
+            "start": "06:44",
+            "end": "08:24",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "stopToReturn"
+                }
+            ]
+        },
+        {
+            "name": "s_joi_intro",
+            "start": "09:56.6",
+            "end": "10:30",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "stopToReturnShort"
+                }
+            ]
+        },
+        {
+            "name": "s_joi",
+            "start": "10:30",
+            "end": "17:20",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_joi_countdown"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_joi_countdown",
+            "start": "17:20",
+            "end": "18:06",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_joi_fail"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_joi_reward",
+            "start": "18:06",
+            "end": "18:20",
+            "events": [
+                {
+                    "start": "18:19.5",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "s_joi_win",
+                            "transition": "fadeToBlack",
+                            "duration": 2000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "s_joi_fail",
+            "start": "18:21",
+            "end": "18:32.3",
+            "events": [],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "options_return_short",
+                    "transition": "fadeToBlack",
+                    "duration": 2000
+                }
+            ]
+        },
+        {
+            "name": "s_joi_fail_2",
+            "start": "18:35",
+            "end": "18:59",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "options_return_short",
+                    "transition": "fadeToBlack",
+                    "duration": 2000
+                }
+            ]
+        },
+        {
+            "name": "s_joi_win",
+            "start": "19:00.2",
+            "end": "19:30.7"
+        },
+        {
+            "name": "stopped",
+            "start": "19:30.7",
+            "end": "19:31",
+            "enterOutputs": [
+                {
+                    "type": "changeSpeed",
+                    "speed": 0
+                },
+                {
+                    "type": "showPopup",
+                    "title": "Congratulations!",
+                    "text": "Do you want to keep playing?\n\nGive a thumbs up or a thumbs down"
+                }
+            ],
+            "events": [
+                {
+                    "condition": "exitedGame === false",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsUp"
+                    },
+                    "outputs": [
+                        {
+                            "type": "hidePopup"
+                        },
+                        {
+                            "type": "changeScene",
+                            "scene": "options_return",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                },
+                {
+                    "condition": "exitedGame === false",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsDown"
+                    },
+                    "outputs": [
+                        {
+                            "type": "hidePopup"
+                        },
+                        {
+                            "type": "updateBooleanState",
+                            "state": "exitedGame",
+                            "value": true
+                        },
+                        {
+                            "type": "exitGame"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "shapes": [
+        {
+            "id": "door",
+            "type": "circle",
+            "isVisible": "systemIs2D",
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": 0.76,
+                    "y": -0.24,
+                    "z": 0.73,
+                    "size": 0.7
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "option_observe",
+            "type": "circle",
+            "isVisible": true,
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": 3.58,
+                    "y": -1.61,
+                    "z": 3.94,
+                    "size": 1.2
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "option_pillow",
+            "type": "circle",
+            "isVisible": true,
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": 1.14,
+                    "y": -1.03,
+                    "z": 1.16,
+                    "size": 0.6
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "option_toy",
+            "type": "circle",
+            "isVisible": true,
+            "keyframes": [
+                {
+                    "time": "00:00:00",
+                    "x": 1.41,
+                    "y": -1.60,
+                    "z": 0.60,
+                    "size": 0.6
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "observe_eyes",
+            "type": "circle",
+            "isVisible": "systemIs2D",
+            "keyframes": [
+                {
+                    "time": "02:10",
+                    "x": -0.04,
+                    "y": -0.02,
+                    "z": 0.28,
+                    "size": 0.15
+                },
+                {
+                    "time": "02:13",
+                    "x": -0.02,
+                    "y": -0.00,
+                    "z": 0.29
+                },
+                {
+                    "time": "02:15",
+                    "x": -0.04,
+                    "y": -0.02,
+                    "z": 0.30
+                },
+                {
+                    "time": "02:16",
+                    "x": -0.03,
+                    "y": 0.02,
+                    "z": 0.29
+                },
+                {
+                    "time": "02:17",
+                    "x": -0.04,
+                    "y": 0.02,
+                    "z": 0.29
+                },
+                {
+                    "time": "02:19",
+                    "x": -0.05,
+                    "y": -0.01,
+                    "z": 0.34
+                },
+                {
+                    "time": "02:20",
+                    "x": -0.05,
+                    "y": -0.01,
+                    "z": 0.35
+                },
+                {
+                    "time": "02:21",
+                    "x": -0.05,
+                    "y": 0.01,
+                    "z": 0.34
+                },
+                {
+                    "time": "02:22",
+                    "x": -0.05,
+                    "y": -0.01,
+                    "z": 0.36
+                },
+                {
+                    "time": "02:24",
+                    "x": -0.04,
+                    "y": -0.03,
+                    "z": 0.36
+                },
+                {
+                    "time": "02:26",
+                    "x": -0.05,
+                    "y": -0.02,
+                    "z": 0.36
+                },
+                {
+                    "time": "02:27",
+                    "x": -0.05,
+                    "y": 0.03,
+                    "z": 0.31
+                },
+                {
+                    "time": "02:30",
+                    "x": -0.02,
+                    "y": 0.01,
+                    "z": 0.24
+                },
+                {
+                    "time": "02:33",
+                    "x": -0.01,
+                    "y": -0.00,
+                    "z": 0.20
+                },
+                {
+                    "time": "02:35",
+                    "x": -0.04,
+                    "y": -0.01,
+                    "z": 0.28
+                },
+                {
+                    "time": "02:36",
+                    "x": -0.01,
+                    "y": 0.01,
+                    "z": 0.32
+                },
+                {
+                    "time": "02:37",
+                    "x": -0.02,
+                    "y": -0.01,
+                    "z": 0.33
+                },
+                {
+                    "time": "02:41",
+                    "x": -0.09,
+                    "y": 0.02,
+                    "z": 0.33
+                },
+                {
+                    "time": "02:43",
+                    "x": -0.07,
+                    "y": -0.01,
+                    "z": 0.31
+                }
+            ]
+        },
+        {
+            "id": "observe_boobs",
+            "type": "circle",
+            "isVisible": "systemIs2D",
+            "keyframes": [
+                {
+                    "time": "02:10",
+                    "x": -0.03,
+                    "y": -0.28,
+                    "z": 0.41,
+                    "size": 0.25
+                },
+                {
+                    "time": "02:13",
+                    "x": -0.03,
+                    "y": -0.25,
+                    "z": 0.38
+                },
+                {
+                    "time": "02:15",
+                    "x": -0.02,
+                    "y": -0.23,
+                    "z": 0.39
+                },
+                {
+                    "time": "02:18",
+                    "x": -0.02,
+                    "y": -0.24,
+                    "z": 0.39
+                },
+                {
+                    "time": "02:20",
+                    "x": -0.05,
+                    "y": -0.26,
+                    "z": 0.44
+                },
+                {
+                    "time": "02:21",
+                    "x": -0.04,
+                    "y": -0.25,
+                    "z": 0.43
+                },
+                {
+                    "time": "02:24",
+                    "x": -0.06,
+                    "y": -0.27,
+                    "z": 0.44
+                },
+                {
+                    "time": "02:25",
+                    "x": -0.07,
+                    "y": -0.26,
+                    "z": 0.45
+                },
+                {
+                    "time": "02:27",
+                    "x": -0.05,
+                    "y": -0.24,
+                    "z": 0.44
+                },
+                {
+                    "time": "02:28",
+                    "x": 0.00,
+                    "y": -0.24,
+                    "z": 0.38
+                },
+                {
+                    "time": "02:29",
+                    "x": -0.05,
+                    "y": -0.22,
+                    "z": 0.33
+                },
+                {
+                    "time": "02:30",
+                    "x": -0.01,
+                    "y": -0.22,
+                    "z": 0.33
+                },
+                {
+                    "time": "02:31",
+                    "x": -0.03,
+                    "y": -0.25,
+                    "z": 0.30
+                },
+                {
+                    "time": "02:33",
+                    "x": -0.02,
+                    "y": -0.28,
+                    "z": 0.33
+                },
+                {
+                    "time": "02:36",
+                    "x": 0.00,
+                    "y": -0.23,
+                    "z": 0.39
+                },
+                {
+                    "time": "02:37",
+                    "x": 0.01,
+                    "y": -0.22,
+                    "z": 0.38
+                },
+                {
+                    "time": "02:39",
+                    "x": 0.00,
+                    "y": -0.21,
+                    "z": 0.40
+                },
+                {
+                    "time": "02:43"
+                }
+            ]
+        },
+        {
+            "id": "observe_pussy",
+            "type": "circle",
+            "isVisible": "systemIs2D",
+            "keyframes": [
+                {
+                    "time": "02:10",
+                    "x": 0.17,
+                    "y": -0.61,
+                    "z": 0.40,
+                    "size": 0.42
+                },
+                {
+                    "time": "02:43"
+                }
+            ]
+        },
+        {
+            "id": "observe_feet",
+            "type": "circle",
+            "isVisible": "systemIs2D",
+            "keyframes": [
+                {
+                    "time": "02:10",
+                    "x": 0.78,
+                    "y": -0.79,
+                    "z": 0.71,
+                    "size": 0.7
+                },
+                {
+                    "time": "02:43"
+                }
+            ]
+        }
+    ]
+}

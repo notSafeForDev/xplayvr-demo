@@ -1,0 +1,2141 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": false,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": true
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_4K_2.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_Final_2K.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_2K_2D.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_1K_2D.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/XPlayVR_Alex_Coal.csv",
+        "sounds": [],
+        "music": []
+    },
+    "states": {
+        "gesture": -1,
+        "losses": 0,
+        "lossesToGiveUp": 5,
+        "gaveUp": false
+    },
+    "predefinedOutputs": {
+        "resetGesture": {
+            "type": "updateNumberState",
+            "state": "gesture",
+            "value": "-1"
+        },
+        "resetLosses": {
+            "type": "updateNumberState",
+            "state": "losses",
+            "value": 0
+        },
+        "pauseIn2D": {
+            "condition": "systemIs2D",
+            "type": "changeSpeed",
+            "speed": 1
+        },
+        "incrementLosses": {
+            "type": "updateNumberState",
+            "state": "losses",
+            "value": "losses + 1"
+        },
+        "rockWin": {
+            "condition": "gesture === 1",
+            "type": "changeScene",
+            "tag": "rockWin",
+            "tagOrder": "next"
+        },
+        "rockLose": {
+            "condition": "gesture !== 1",
+            "type": "changeScene",
+            "tag": "rockLose",
+            "tagOrder": "next"
+        },
+        "paperWin": {
+            "condition": "gesture === 2",
+            "type": "changeScene",
+            "tag": "paperWin",
+            "tagOrder": "next"
+        },
+        "paperLose": {
+            "condition": "gesture !== 2",
+            "type": "changeScene",
+            "tag": "paperLose",
+            "tagOrder": "next"
+        },
+        "scissorsWin": {
+            "condition": "gesture === 0",
+            "type": "changeScene",
+            "tag": "scissorsWin",
+            "tagOrder": "next"
+        },
+        "scissorsLose": {
+            "condition": "gesture !== 0",
+            "type": "changeScene",
+            "tag": "scissorsLose",
+            "tagOrder": "next"
+        }
+    },
+    "predefinedEvents": {
+        "resetGestureInVR": {
+            "outputs": [
+                {
+                    "condition": "systemIsVR",
+                    "type": "updateNumberState",
+                    "state": "gesture",
+                    "value": -1
+                }
+            ]
+        },
+        "waitForGestureIn2D": {
+            "outputs": [
+                {
+                    "condition": "gesture === -1 && systemIs2D",
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ]
+        },
+        "resumeAfterGestureIn2D": {
+            "outputs": [
+                {
+                    "condition": "gesture !== -1 && systemIs2D",
+                    "type": "changeSpeed",
+                    "speed": 1
+                }
+            ]
+        },
+        "rock": {
+            "condition": "systemIsVR || gesture === -1",
+            "input": {
+                "type": "handGesture",
+                "handGesture": "fist"
+            },
+            "outputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "gesture",
+                    "value": 0
+                }
+            ]
+        },
+        "paper": {
+            "condition": "systemIsVR || gesture === -1",
+            "input": {
+                "type": "handGesture",
+                "handGesture": "open"
+            },
+            "outputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "gesture",
+                    "value": 1
+                }
+            ]
+        },
+        "scissors": {
+            "condition": "systemIsVR || gesture === -1",
+            "input": {
+                "type": "handGesture",
+                "handGesture": "scissors"
+            },
+            "outputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "gesture",
+                    "value": 2
+                }
+            ]
+        },
+        "r2GiveUp": {
+            "condition": "losses >= lossesToGiveUp",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "r2_give_up"
+                }
+            ]
+        },
+        "r4GiveUp": {
+            "condition": "losses >= lossesToGiveUp",
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "r4_give_up"
+                }
+            ]
+        },
+        "blowjobStopSuck": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "blowjob_slowdown_suck"
+                }
+            ]
+        },
+        "blowjobStopStroke": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "blowjob_slowdown_stroke"
+                }
+            ]
+        },
+        "stopToTitjobSlowdown": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "titjob_slowed_down"
+                }
+            ]
+        },
+        "stopToTitjobLeftSlowdown": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "titjob_left_slowdown"
+                }
+            ]
+        },
+        "stopToTitjobRightSlowdown": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "titjob_right_slowdown"
+                }
+            ]
+        }
+    },
+    "postProcessing": [],
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:19",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "losses",
+                    "value": 0
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "gaveUp",
+                    "value": false
+                }
+            ],
+            "events": [
+                {
+                    "start": "00:16",
+                    "condition": "systemIs2D",
+                    "outputs": [
+                        {
+                            "parseCondition": "random(intro) < 0.33",
+                            "type": "changeScene",
+                            "scene": "r1_rock",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "parseCondition": "random(intro) >= 0.33 && random(intro) < 0.66",
+                            "type": "changeScene",
+                            "scene": "r1_paper",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "parseCondition": "random(intro) >= 0.66",
+                            "type": "changeScene",
+                            "scene": "r1_scissors",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tutorial_question",
+            "start": "00:19",
+            "end": "00:21",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "tutorial_skip"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tutorial",
+            "start": "00:21",
+            "end": "00:53",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "r1_rock"
+                }
+            ]
+        },
+        {
+            "name": "tutorial_skip",
+            "start": "00:56.8",
+            "end": "01:00",
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(intro) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r1_rock"
+                },
+                {
+                    "parseCondition": "random(intro) >= 0.33 && random(intro) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r1_paper"
+                },
+                {
+                    "parseCondition": "random(intro) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r1_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r1_scissors",
+            "start": "01:05",
+            "end": "01:10.6",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "01:09.6"
+                },
+                {
+                    "predefined": "waitForGestureIn2D",
+                    "start": "01:07.8",
+                    "end": "01:07.8"
+                },
+                {
+                    "predefined": "resumeAfterGestureIn2D"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "scissorsWin"
+                },
+                {
+                    "predefined": "scissorsLose"
+                }
+            ]
+        },
+        {
+            "name": "r1_scissors_lose",
+            "start": "01:13",
+            "end": "01:20",
+            "tags": [
+                "scissorsLose"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                },
+                {
+                    "parseCondition": "random(r1_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_rock"
+                },
+                {
+                    "parseCondition": "random(r1_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_paper"
+                }
+            ]
+        },
+        {
+            "name": "r1_paper",
+            "start": "01:23",
+            "end": "01:29.1",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "01:28"
+                },
+                {
+                    "predefined": "waitForGestureIn2D",
+                    "start": "01:26.2",
+                    "end": "01:26.2"
+                },
+                {
+                    "predefined": "resumeAfterGestureIn2D"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "paperWin"
+                }
+            ]
+        },
+        {
+            "name": "r1_paper_lose",
+            "start": "01:29.2",
+            "end": "01:35",
+            "tags": [
+                "paperLose"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                },
+                {
+                    "parseCondition": "random(r1_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_scissors"
+                },
+                {
+                    "parseCondition": "random(r1_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_rock"
+                }
+            ]
+        },
+        {
+            "name": "r1_rock_lose",
+            "start": "01:42.1",
+            "end": "01:49",
+            "tags": [
+                "rockLose"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                },
+                {
+                    "parseCondition": "random(r1_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_paper"
+                },
+                {
+                    "parseCondition": "random(r1_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r1_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r1_rock",
+            "start": "01:51",
+            "end": "01:57.5",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "01:56.4"
+                },
+                {
+                    "predefined": "waitForGestureIn2D",
+                    "start": "01:54.5",
+                    "end": "01:54.5"
+                },
+                {
+                    "predefined": "resumeAfterGestureIn2D"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "rockLose",
+                    "tagOrder": "previous"
+                }
+            ]
+        },
+        {
+            "name": "r1_rock_win",
+            "start": "01:57.6",
+            "end": "02:11.5",
+            "tags": [
+                "rockWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r1_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r2_rock"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.33 && random(r1_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_paper"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r1_paper_win",
+            "start": "02:19.2",
+            "end": "02:35",
+            "tags": [
+                "paperWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r1_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r2_rock"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.33 && random(r1_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_paper"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r1_scissors_win",
+            "start": "02:45.2",
+            "end": "03:03",
+            "tags": [
+                "scissorsWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r1_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r2_rock"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.33 && random(r1_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_paper"
+                },
+                {
+                    "parseCondition": "random(r1_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r2_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r2_give_up",
+            "start": "03:05.2",
+            "end": "03:18.5",
+            "tags": [
+                "giveUp"
+            ],
+            "events": [
+                {
+                    "start": "03:15",
+                    "end": "03:15",
+                    "outputs": [
+                        {
+                            "condition": "systemIs2D",
+                            "type": "changeSpeed",
+                            "speed": 0
+                        },
+                        {
+                            "condition": "systemIsVR",
+                            "type": "changeSpeed",
+                            "speed": 0.33
+                        }
+                    ]
+                },
+                {
+                    "start": "03:15",
+                    "end": "03:15.8",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "gaveUp",
+                            "value": true
+                        },
+                        {
+                            "type": "changeSpeed",
+                            "speed": 2
+                        }
+                    ]
+                },
+                {
+                    "start": "03:15",
+                    "end": "03:15.8",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateNumberState",
+                            "state": "losses",
+                            "value": 0
+                        },
+                        {
+                            "type": "changeSpeed",
+                            "speed": 1
+                        },
+                        {
+                            "type": "changeScene",
+                            "scene": "r2_rock"
+                        }
+                    ]
+                },
+                {
+                    "start": "03:15.8",
+                    "end": "03:15.8",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 1
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "condition": "gaveUp === true",
+                    "type": "changeScene",
+                    "scene": "handjob",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "r2_rock",
+            "start": "03:21",
+            "end": "03:28.1",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "03:27"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "rockWin"
+                }
+            ]
+        },
+        {
+            "name": "r2_rock_lose",
+            "start": "03:28.2",
+            "end": "03:35",
+            "tags": [
+                "rockLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r2GiveUp",
+                    "start": "03:31.5"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r2_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_paper"
+                },
+                {
+                    "parseCondition": "random(r2_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r2_scissors",
+            "start": "03:35.1",
+            "end": "03:41.5",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "03:40.5"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "scissorsWin"
+                }
+            ]
+        },
+        {
+            "name": "r2_scissors_lose",
+            "start": "03:41.6",
+            "end": "03:49",
+            "tags": [
+                "scissorsLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r2GiveUp",
+                    "start": "03:43.6"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r2_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_rock"
+                },
+                {
+                    "parseCondition": "random(r2_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_paper"
+                }
+            ]
+        },
+        {
+            "name": "r2_paper",
+            "start": "03:49.1",
+            "end": "03:54.2",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "03:54"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "paperWin"
+                }
+            ]
+        },
+        {
+            "name": "r2_paper_lose",
+            "start": "03:54.3",
+            "end": "04:01",
+            "tags": [
+                "paperLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r2GiveUp",
+                    "start": "03:57.5"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r2_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_scissors"
+                },
+                {
+                    "parseCondition": "random(r2_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r2_rock"
+                }
+            ]
+        },
+        {
+            "name": "r2_rock_win",
+            "start": "04:10.5",
+            "end": "04:36.5",
+            "tags": [
+                "rockWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r2_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r3_rock"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.33 && random(r2_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_paper"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r2_scissors_win",
+            "start": "04:46",
+            "end": "05:18.5",
+            "tags": [
+                "scissorsWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r2_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r3_rock"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.33 && random(r2_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_paper"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r2_paper_win",
+            "start": "05:26.5",
+            "end": "06:02",
+            "tags": [
+                "paperWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r2_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r3_rock"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.33 && random(r2_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_paper"
+                },
+                {
+                    "parseCondition": "random(r2_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r3_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r3_scissors",
+            "start": "06:05",
+            "end": "06:11.4",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "06:10.4"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "scissorsWin"
+                }
+            ]
+        },
+        {
+            "name": "r3_scissors_lose",
+            "start": "06:11.5",
+            "end": "06:20",
+            "tags": [
+                "scissorsLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r3_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_rock"
+                },
+                {
+                    "parseCondition": "random(r3_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_paper"
+                }
+            ]
+        },
+        {
+            "name": "r3_paper",
+            "start": "06:20.1",
+            "end": "06:24.7",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "06:24"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "paperWin"
+                }
+            ]
+        },
+        {
+            "name": "r3_paper_lose",
+            "start": "06:24.8",
+            "end": "06:32",
+            "tags": [
+                "paperLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r3_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_scissors"
+                },
+                {
+                    "parseCondition": "random(r3_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_rock"
+                }
+            ]
+        },
+        {
+            "name": "r3_rock_lose",
+            "start": "06:36.6",
+            "end": "06:46",
+            "tags": [
+                "rockLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r3_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_paper"
+                },
+                {
+                    "parseCondition": "random(r3_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r3_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r3_rock",
+            "start": "07:38",
+            "end": "07:43.7",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "07:42.5"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "rockLose",
+                    "tagOrder": "previous"
+                }
+            ]
+        },
+        {
+            "name": "r3_rock_win",
+            "start": "07:43.8",
+            "end": "08:19",
+            "tags": [
+                "rockWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r3_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r4_rock"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.33 && random(r3_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_paper"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r3_paper_win",
+            "start": "08:28.2",
+            "end": "09:00",
+            "tags": [
+                "paperWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r3_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r4_rock"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.33 && random(r3_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_paper"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r3_scissors_win",
+            "start": "09:10",
+            "end": "09:46",
+            "tags": [
+                "scissorsWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "parseCondition": "random(r3_win) < 0.33",
+                    "type": "changeScene",
+                    "scene": "r4_rock"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.33 && random(r3_win) < 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_paper"
+                },
+                {
+                    "parseCondition": "random(r3_win) >= 0.66",
+                    "type": "changeScene",
+                    "scene": "r4_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r4_rock",
+            "start": "09:50",
+            "end": "09:55.6",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "09:54.6"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "rockWin"
+                }
+            ]
+        },
+        {
+            "name": "r4_rock_lose",
+            "start": "09:55.7",
+            "end": "10:05",
+            "tags": [
+                "rockLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r4GiveUp",
+                    "start": "09:57.6"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r4_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_paper"
+                },
+                {
+                    "parseCondition": "random(r4_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r4_paper",
+            "start": "10:05.1",
+            "end": "10:09",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "10:08"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "paperWin"
+                }
+            ]
+        },
+        {
+            "name": "r4_paper_lose",
+            "start": "10:09.1",
+            "end": "10:18",
+            "tags": [
+                "paperLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r4GiveUp",
+                    "start": "10:12"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r4_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_scissors"
+                },
+                {
+                    "parseCondition": "random(r4_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_rock"
+                }
+            ]
+        },
+        {
+            "name": "r4_scissors",
+            "start": "10:18.1",
+            "end": "10:22.4",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "10:21.4"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "scissorsWin"
+                }
+            ]
+        },
+        {
+            "name": "r4_scissors_lose",
+            "start": "10:22.5",
+            "end": "10:31",
+            "tags": [
+                "scissorsLose"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "incrementLosses"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "r4GiveUp",
+                    "start": "10:25.9"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r4_lose) < 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_rock"
+                },
+                {
+                    "parseCondition": "random(r4_lose) >= 0.5",
+                    "condition": "losses < lossesToGiveUp",
+                    "type": "changeScene",
+                    "scene": "r4_paper"
+                }
+            ]
+        },
+        {
+            "name": "r4_give_up",
+            "start": "10:39.5",
+            "end": "10:46.5",
+            "tags": [
+                "giveUp"
+            ],
+            "events": [
+                {
+                    "start": "10:43.5",
+                    "end": "10:43.5",
+                    "outputs": [
+                        {
+                            "condition": "systemIs2D",
+                            "type": "changeSpeed",
+                            "speed": 0
+                        },
+                        {
+                            "condition": "systemIsVR",
+                            "type": "changeSpeed",
+                            "speed": 0.33
+                        }
+                    ]
+                },
+                {
+                    "start": "10:43.5",
+                    "end": "10:44.4",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateBooleanState",
+                            "state": "gaveUp",
+                            "value": true
+                        },
+                        {
+                            "type": "changeSpeed",
+                            "speed": 2
+                        }
+                    ]
+                },
+                {
+                    "start": "10:43.5",
+                    "end": "10:44.4",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "updateNumberState",
+                            "state": "losses",
+                            "value": 0
+                        },
+                        {
+                            "type": "changeSpeed",
+                            "speed": 1
+                        },
+                        {
+                            "type": "changeScene",
+                            "scene": "r4_rock"
+                        }
+                    ]
+                },
+                {
+                    "start": "10:44.4",
+                    "end": "10:44.4",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 1
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "condition": "gaveUp === true",
+                    "type": "changeScene",
+                    "scene": "handjob",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "r4_rock_win",
+            "start": "10:57",
+            "end": "11:38",
+            "tags": [
+                "rockWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "r5_intro"
+                }
+            ]
+        },
+        {
+            "name": "r4_paper_win",
+            "start": "11:46",
+            "end": "12:23",
+            "tags": [
+                "paperWin1"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "r5_intro"
+                }
+            ]
+        },
+        {
+            "name": "r4_scissors_win",
+            "start": "12:33.5",
+            "end": "13:14",
+            "tags": [
+                "scissorsWin"
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "resetLosses"
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "r5_intro"
+                }
+            ]
+        },
+        {
+            "name": "r5_intro",
+            "start": "13:20.5",
+            "end": "13:27.7"
+        },
+        {
+            "name": "r5_rock",
+            "start": "13:27.7",
+            "end": "13:31.1",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "start": "13:28",
+                    "end": "13:28.2",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 0.1
+                        }
+                    ]
+                },
+                {
+                    "start": "13:28",
+                    "outputs": [
+                        {
+                            "type": "changeSpeed",
+                            "speed": 1
+                        }
+                    ]
+                },
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "13:28"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "rockWin"
+                }
+            ]
+        },
+        {
+            "name": "r5_rock_lose",
+            "start": "13:31.2",
+            "end": "13:38",
+            "tags": [
+                "rockLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r5_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_paper"
+                },
+                {
+                    "parseCondition": "random(r5_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_scissors"
+                }
+            ]
+        },
+        {
+            "name": "r5_paper",
+            "start": "13:48.5",
+            "end": "13:51.7",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "13:49"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "paperWin"
+                }
+            ]
+        },
+        {
+            "name": "r5_paper_lose",
+            "start": "13:51.8",
+            "end": "13:59",
+            "tags": [
+                "paperLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r5_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_scissors"
+                },
+                {
+                    "parseCondition": "random(r5_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_rock"
+                }
+            ]
+        },
+        {
+            "name": "r5_scissors",
+            "start": "14:08.4",
+            "end": "14:11.9",
+            "enterOutputs": [
+                {
+                    "predefined": "resetGesture"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "resetGestureInVR",
+                    "end": "14:09"
+                },
+                {
+                    "predefined": "rock"
+                },
+                {
+                    "predefined": "paper"
+                },
+                {
+                    "predefined": "scissors"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "scissorsWin"
+                }
+            ]
+        },
+        {
+            "name": "r5_scissors_lose",
+            "start": "14:12",
+            "end": "14:17.2",
+            "tags": [
+                "scissorsLose"
+            ],
+            "exitOutputs": [
+                {
+                    "parseCondition": "random(r5_lose) < 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_rock"
+                },
+                {
+                    "parseCondition": "random(r5_lose) >= 0.5",
+                    "type": "changeScene",
+                    "scene": "r5_paper"
+                }
+            ]
+        },
+        {
+            "name": "r5_rock_win",
+            "start": "14:32.6",
+            "end": "14:46",
+            "tags": [
+                "rockWin"
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "r5_scissors_win",
+            "start": "15:01",
+            "end": "15:15",
+            "tags": [
+                "scissorsWin"
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "r5_paper_win",
+            "start": "15:29",
+            "end": "15:42",
+            "tags": [
+                "paperWin"
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "reward",
+            "start": "15:45",
+            "end": "16:04",
+            "loop": true,
+            "events": [
+                {
+                    "start": "15:50",
+                    "end": "15:54",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "handjob"
+                        }
+                    ]
+                },
+                {
+                    "start": "15:56",
+                    "end": "15:59",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "blowjob"
+                        }
+                    ]
+                },
+                {
+                    "start": "16:01",
+                    "end": "16:05",
+                    "input": {
+                        "type": "response",
+                        "response": "yes"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "titjob"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "handjob",
+            "start": "16:18",
+            "end": "16:59.7",
+            "events": [
+                {
+                    "start": "16:36",
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "handjob_slowed_down"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "condition": "gaveUp === true",
+                    "type": "changeScene",
+                    "scene": "handjob_continue"
+                }
+            ]
+        },
+        {
+            "name": "handjob_win_comment",
+            "start": "16:59.8",
+            "end": "17:18"
+        },
+        {
+            "name": "handjob_continue",
+            "start": "17:18.1",
+            "end": "17:31.8",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "handjob_slowed_down"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "condition": "gaveUp === true",
+                    "type": "changeScene",
+                    "scene": "handjob_slowdown"
+                }
+            ]
+        },
+        {
+            "name": "handjob_fast",
+            "start": "17:31.9",
+            "end": "18:26.5",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "handjob_fast_to_slow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "handjob_fast_to_slow",
+            "start": "18:26.6",
+            "end": "18:31.7"
+        },
+        {
+            "name": "handjob_slowdown",
+            "start": "18:31.8",
+            "end": "18:36.8"
+        },
+        {
+            "name": "handjob_slowed_down",
+            "start": "18:36.8",
+            "end": "18:54",
+            "exitOutputs": [
+                {
+                    "condition": "gaveUp === true",
+                    "type": "changeScene",
+                    "scene": "intro",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                },
+                {
+                    "condition": "gaveUp === false",
+                    "type": "changeScene",
+                    "scene": "reward"
+                }
+            ]
+        },
+        {
+            "name": "titjob",
+            "start": "19:10",
+            "end": "20:36",
+            "events": [
+                {
+                    "start": "19:37",
+                    "end": "19:47",
+                    "predefined": "stopToTitjobRightSlowdown"
+                },
+                {
+                    "start": "19:53",
+                    "end": "20:04",
+                    "predefined": "stopToTitjobSlowdown"
+                },
+                {
+                    "start": "20:06",
+                    "end": "20:07.5",
+                    "predefined": "stopToTitjobRightSlowdown"
+                },
+                {
+                    "start": "20:11",
+                    "end": "20:15.5",
+                    "predefined": "stopToTitjobRightSlowdown"
+                },
+                {
+                    "start": "20:15.5",
+                    "end": "20:17",
+                    "predefined": "stopToTitjobLeftSlowdown"
+                },
+                {
+                    "start": "20:17",
+                    "end": "20:24",
+                    "predefined": "stopToTitjobRightSlowdown"
+                },
+                {
+                    "start": "20:24",
+                    "end": "20:25",
+                    "predefined": "stopToTitjobLeftSlowdown"
+                },
+                {
+                    "start": "20:25",
+                    "predefined": "stopToTitjobSlowdown"
+                }
+            ]
+        },
+        {
+            "name": "titjob_fast",
+            "start": "20:36.1",
+            "end": "21:27",
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "titjob_slowdown"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "titjob_slowdown",
+            "start": "21:27.1",
+            "end": "21:37.5"
+        },
+        {
+            "name": "titjob_left_slowdown",
+            "start": "21:37.5",
+            "end": "21:39"
+        },
+        {
+            "name": "titjob_right_slowdown",
+            "start": "21:39",
+            "end": "21:44"
+        },
+        {
+            "name": "titjob_slowed_down",
+            "start": "21:44",
+            "end": "21:51",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward"
+                }
+            ]
+        },
+        {
+            "name": "blowjob",
+            "start": "22:06.3",
+            "end": "23:25"
+        },
+        {
+            "name": "blowjob_fast",
+            "start": "23:25.1",
+            "end": "23:30.5",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_2",
+            "start": "23:30.5",
+            "end": "23:36.5",
+            "events": [
+                {
+                    "predefined": "blowjobStopStroke"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_3",
+            "start": "23:36.5",
+            "end": "23:38.2",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_4",
+            "start": "23:38.2",
+            "end": "23:42"
+        },
+        {
+            "name": "blowjob_fast_5",
+            "start": "23:42",
+            "end": "23:46.5",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_6",
+            "start": "23:46.5",
+            "end": "23:51",
+            "events": [
+                {
+                    "predefined": "blowjobStopStroke"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_7",
+            "start": "23:51",
+            "end": "23:57",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_8",
+            "start": "23:57",
+            "end": "24:02",
+            "events": [
+                {
+                    "predefined": "blowjobStopStroke"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_9",
+            "start": "24:02",
+            "end": "24:03.3",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_fast_10",
+            "start": "24:03.3",
+            "end": "24:06"
+        },
+        {
+            "name": "blowjob_fast_11",
+            "start": "24:06",
+            "end": "24:11",
+            "events": [
+                {
+                    "predefined": "blowjobStopSuck"
+                }
+            ]
+        },
+        {
+            "name": "blowjob_slowdown_suck",
+            "start": "24:11",
+            "end": "24:18.4"
+        },
+        {
+            "name": "blowjob_slowdown_stroke",
+            "start": "24:18.4",
+            "end": "24:48",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward"
+                }
+            ]
+        }
+    ],
+    "shapes": []
+}

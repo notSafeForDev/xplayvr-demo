@@ -1,0 +1,1904 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": true,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": true
+        },
+        "videos": [
+            {
+                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_Final_2K.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_4K.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_2K_2D.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_1K_2D.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/XPlayVR_Haley_Spades.csv",
+        "sounds": [],
+        "music": [
+            {
+                "id": "music",
+                "source": "https://nyc3.digitaloceanspaces.com/video-player/XPlayVR/games/haley_spades/ES_Heart%20Pound%20174bpm%20edited.mp3",
+                "queryParams": [],
+                "duration": "02:23",
+                "loopStart": "00:28.567",
+                "loopEnd": "01:49.101",
+                "loopOutputs": [
+                    {
+                        "type": "updateNumberState",
+                        "state": "musicLoopCount",
+                        "value": "musicLoopCount + 1"
+                    }
+                ],
+                "endOutputs": [
+                    {
+                        "type": "updateBooleanState",
+                        "state": "won",
+                        "value": true
+                    },
+                    {
+                        "type": "updateBooleanState",
+                        "state": "isMusicPlaying",
+                        "value": false
+                    },
+                    {
+                        "type": "updateNumberState",
+                        "state": "musicLoopCount",
+                        "value": 0
+                    },
+                    {
+                        "condition": "position === 0",
+                        "type": "changeScene",
+                        "scene": "win_pole",
+                        "transition": "fadeToBlack",
+                        "duration": 1000
+                    },
+                    {
+                        "condition": "position === 1",
+                        "type": "changeScene",
+                        "scene": "win_bottom",
+                        "transition": "fadeToBlack",
+                        "duration": 1000
+                    },
+                    {
+                        "condition": "position === 2",
+                        "type": "changeScene",
+                        "scene": "win_left",
+                        "transition": "fadeToBlack",
+                        "duration": 1000
+                    },
+                    {
+                        "condition": "position === 3",
+                        "type": "changeScene",
+                        "scene": "win_right",
+                        "transition": "fadeToBlack",
+                        "duration": 1000
+                    }
+                ]
+            }
+        ]
+    },
+    "postProcessing": [
+        {
+            "id": "default",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 0.3,
+                    "midtones": 1.2,
+                    "highlights": 1.4,
+                    "saturation": 1.2
+                }
+            ]
+        },
+        {
+            "id": "music",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 0.2,
+                    "highlights": 1,
+                    "saturation": 1.1
+                },
+                {
+                    "time": 0.344827,
+                    "shadows": 0.5,
+                    "highlights": 1.6,
+                    "saturation": 1.3
+                },
+                {
+                    "time": 0.689655,
+                    "shadows": 0.2,
+                    "highlights": 1,
+                    "saturation": 1.1
+                }
+            ]
+        },
+        {
+            "id": "music_fast",
+            "loopStart": 0.344827,
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 1.2,
+                    "highlights": 2.5,
+                    "saturation": 0
+                },
+                {
+                    "time": 0.344827,
+                    "shadows": 0.2,
+                    "highlights": 1,
+                    "saturation": 1.1
+                },
+                {
+                    "time": 0.517241,
+                    "shadows": 0.5,
+                    "highlights": 1.6,
+                    "saturation": 1.3
+                },
+                {
+                    "time": 0.689655,
+                    "shadows": 0.2,
+                    "highlights": 1,
+                    "saturation": 1.1
+                }
+            ]
+        }
+    ],
+    "states": {
+        "musicLoopCount": 0,
+        "won": false,
+        "position": -1,
+        "lastPosition": 1,
+        "isMusicPlaying": false,
+        "tempTrue": true,
+        "tempFalse": false
+    },
+    "predefinedEvents": {
+        "playMusic": {
+            "condition": "isMusicPlaying === false",
+            "outputs": [
+                {
+                    "type": "playMusic",
+                    "music": "music",
+                    "loop": "musicLoopCount < 1"
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "isMusicPlaying",
+                    "value": true
+                }
+            ]
+        },
+        "yesToStrip": {
+            "input": {
+                "type": "response",
+                "response": "yes"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "strip",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "dancePole": {
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_pole",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "pointAtPole": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "pole_bottom_from_pole"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_pole",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "pointAtBottom": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "pole_bottom_from_pole"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_bottom",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "pointAtLeft": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "left_chair"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_left_chair",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "pointAtRight": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "right_chair"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_right_chair",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        "lost": {
+            "outputs": [
+                {
+                    "condition": "isMusicPlaying",
+                    "type": "stopMusic",
+                    "duration": 1000
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "isMusicPlaying",
+                    "value": false
+                },
+                {
+                    "type": "updateNumberState",
+                    "state": "musicLoopCount",
+                    "value": 0
+                },
+                {
+                    "type": "changeScene",
+                    "scene": "intro_play_again",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        }
+    },
+    "predefinedOutputs": {
+        "setDefaultPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "default",
+            "loop": true
+        },
+        "setMusicPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "music",
+            "loop": true
+        },
+        "setMusicFastPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "music_fast",
+            "loop": true
+        },
+        "dancePole": {
+            "type": "changeScene",
+            "scene": "dance_pole",
+            "transition": "fadeToBlack",
+            "duration": 1000
+        },
+        "danceBottom": {
+            "type": "changeScene",
+            "scene": "dance_bottom",
+            "transition": "fadeToBlack",
+            "duration": 1000
+        },
+        "danceLeft": {
+            "type": "changeScene",
+            "scene": "dance_left_chair",
+            "transition": "fadeToBlack",
+            "duration": 1000
+        },
+        "danceRight": {
+            "type": "changeScene",
+            "scene": "dance_right_chair",
+            "transition": "fadeToBlack",
+            "duration": 1000
+        }
+    },
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "01:29.5",
+            "enterOutputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "won",
+                    "value": false
+                },
+                {
+                    "predefined": "setDefaultPostProcessing"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "01:25"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "dancePole"
+                }
+            ]
+        },
+        {
+            "name": "intro_play_again",
+            "start": "01:43",
+            "end": "02:03",
+            "enterOutputs": [
+                {
+                    "type": "updateBooleanState",
+                    "state": "won",
+                    "value": false
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "01:58"
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "predefined": "dancePole"
+                }
+            ]
+        },
+        {
+            "name": "stop_pole",
+            "start": "03:27.5",
+            "end": "03:55",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "03:35",
+                    "end": "03:49"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "03:35",
+                    "end": "03:49"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "03:35",
+                    "end": "03:49"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "03:54.5"
+                }
+            ]
+        },
+        {
+            "name": "stop_bottom",
+            "start": "03:57",
+            "end": "04:27",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "04:04.5",
+                    "end": "04:19"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "04:04.5",
+                    "end": "04:19"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "04:04.5",
+                    "end": "04:19"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "04:26.5"
+                }
+            ]
+        },
+        {
+            "name": "stop_right",
+            "start": "04:50",
+            "end": "05:22",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "05:01",
+                    "end": "05:15"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "05:01",
+                    "end": "05:15"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "05:01",
+                    "end": "05:15"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "05:21.5"
+                }
+            ]
+        },
+        {
+            "name": "stop_right_2",
+            "start": "05:37",
+            "end": "06:05",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "05:49",
+                    "end": "05:59.5"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "05:49",
+                    "end": "05:59.5"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "05:49",
+                    "end": "05:59.5"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "06:04.5"
+                }
+            ]
+        },
+        {
+            "name": "stop_left",
+            "start": "06:19",
+            "end": "06:47",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "06:32",
+                    "end": "06:42"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "06:32",
+                    "end": "06:42"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "06:32",
+                    "end": "06:42"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "06:46.5"
+                }
+            ]
+        },
+        {
+            "name": "stop_left_2",
+            "start": "06:56.5",
+            "end": "07:26",
+            "events": [
+                {
+                    "predefined": "pointAtBottom",
+                    "start": "07:06",
+                    "end": "07:19.5"
+                },
+                {
+                    "predefined": "pointAtLeft",
+                    "start": "07:06",
+                    "end": "07:19.5"
+                },
+                {
+                    "predefined": "pointAtRight",
+                    "start": "07:06",
+                    "end": "07:19.5"
+                },
+                {
+                    "predefined": "lost",
+                    "start": "07:25.5"
+                }
+            ]
+        },
+        {
+            "name": "win_pole",
+            "start": "07:30",
+            "end": "07:50",
+            "events": [
+                {
+                    "predefined": "yesToStrip",
+                    "start": "07:44"
+                },
+                {
+                    "start": "07:44",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "win_pole_continue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "win_pole_continue",
+            "start": "07:50",
+            "end": "08:01",
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "07:51"
+                },
+                {
+                    "predefined": "dancePole",
+                    "start": "08:00.5"
+                }
+            ]
+        },
+        {
+            "name": "win_right",
+            "start": "08:06",
+            "end": "08:24",
+            "events": [
+                {
+                    "predefined": "yesToStrip",
+                    "start": "08:17"
+                },
+                {
+                    "start": "08:17",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "win_right_continue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "win_right_continue",
+            "start": "08:24",
+            "end": "08:33.5",
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "08:25"
+                },
+                {
+                    "predefined": "dancePole",
+                    "start": "08:33"
+                }
+            ]
+        },
+        {
+            "name": "win_left",
+            "start": "09:05",
+            "end": "09:23",
+            "events": [
+                {
+                    "predefined": "yesToStrip",
+                    "start": "09:15"
+                },
+                {
+                    "start": "09:15",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "win_left_contine"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "win_left_contine",
+            "start": "09:23",
+            "end": "09:34.5",
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "09:24"
+                },
+                {
+                    "predefined": "dancePole",
+                    "start": "09:34"
+                }
+            ]
+        },
+        {
+            "name": "win_bottom",
+            "start": "09:47.5",
+            "end": "10:04",
+            "events": [
+                {
+                    "predefined": "yesToStrip",
+                    "start": "09:58"
+                },
+                {
+                    "start": "09:58",
+                    "input": {
+                        "type": "response",
+                        "response": "no"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "win_bottom_continue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "win_bottom_continue",
+            "start": "10:04",
+            "end": "10:15.5",
+            "events": [
+                {
+                    "predefined": "playMusic",
+                    "start": "10:05"
+                },
+                {
+                    "predefined": "dancePole",
+                    "start": "10:15"
+                }
+            ]
+        },
+        {
+            "name": "dance_pole",
+            "start": "10:21",
+            "end": "15:23.5",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "position",
+                    "value": 0
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ],
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "won === false",
+                            "type": "changeScene",
+                            "scene": "stop_pole",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "won === true",
+                            "type": "changeScene",
+                            "scene": "strip",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "predefined": "pointAtBottom"
+                },
+                {
+                    "predefined": "pointAtLeft"
+                },
+                {
+                    "predefined": "pointAtRight"
+                },
+                {
+                    "start": "15:23",
+                    "outputs": [
+                        {
+                            "predefined": "danceBottom"
+                        }
+                    ]
+                },
+                {
+                    "time": 620.005,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 689.541,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 692.337,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 708.434,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 710.128,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 722.789,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 729.834,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 736.113,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 737.351,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 825.364,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 828.132,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 844.493,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 847.382,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 850.901,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 853.519,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 0
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ]
+        },
+        {
+            "name": "dance_bottom",
+            "start": "15:29.5",
+            "end": "18:58",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "position",
+                    "value": 1
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ],
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "won === false",
+                            "type": "changeScene",
+                            "scene": "stop_bottom",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "won === true",
+                            "type": "changeScene",
+                            "scene": "strip",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "pole_from_bottom"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "dance_pole",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "left_chair_from_bottom"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "dance_left_chair",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "right_chair_from_bottom"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "dance_right_chair",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "start": "18:57.5",
+                    "outputs": [
+                        {
+                            "predefined": "danceLeft"
+                        }
+                    ]
+                },
+                {
+                    "time": 956.487,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 958.251,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 960.994,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 968.934,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 983.19,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 984.548,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1010.28,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1026.292,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1054.042,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1066.297,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1082.777,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1083.677,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1099.442,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1111.576,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1129.315,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1131.79,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 1
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ]
+        },
+        {
+            "name": "dance_left_chair",
+            "start": "19:09",
+            "end": "22:34",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "position",
+                    "value": 2
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ],
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "won === false",
+                            "type": "changeScene",
+                            "scene": "stop_left_2",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "won === true",
+                            "type": "changeScene",
+                            "scene": "strip",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "pole_from_chair_left"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "lastPosition !== 0",
+                            "type": "changeScene",
+                            "scene": "dance_pole",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "lastPosition !== 1",
+                            "type": "changeScene",
+                            "scene": "dance_bottom",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "start": "22:33.5",
+                    "outputs": [
+                        {
+                            "predefined": "danceRight"
+                        }
+                    ]
+                },
+                {
+                    "time": 1167.069,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1170.947,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1184.19,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1186.001,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1217.041,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1218.719,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1226.021,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1232.17,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1243.498,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1251.677,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1278.771,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1280.163,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1301.656,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1303.052,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1322.99,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1327.843,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1328.549,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1332.248,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 2
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ]
+        },
+        {
+            "name": "dance_right_chair",
+            "start": "22:37",
+            "end": "26:09",
+            "enterOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "position",
+                    "value": 3
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ],
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "won === false",
+                            "type": "changeScene",
+                            "scene": "stop_right_2",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "won === true",
+                            "type": "changeScene",
+                            "scene": "strip",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "input": {
+                        "type": "shape",
+                        "input": "point",
+                        "shape": "pole_from_chair_right"
+                    },
+                    "outputs": [
+                        {
+                            "condition": "lastPosition !== 0",
+                            "type": "changeScene",
+                            "scene": "dance_pole",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        },
+                        {
+                            "condition": "lastPosition !== 1",
+                            "type": "changeScene",
+                            "scene": "dance_bottom",
+                            "transition": "fadeToBlack",
+                            "duration": 1000
+                        }
+                    ]
+                },
+                {
+                    "start": "26:08.5",
+                    "outputs": [
+                        {
+                            "predefined": "dancePole"
+                        }
+                    ]
+                },
+                {
+                    "time": 1362.264,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1370.682,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1380.348,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1386.825,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1390.55,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1391.64,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1406.294,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1411.297,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1427.749,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1433.22,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1445.29,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1450.553,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1464.947,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1469.22,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1481.7,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1487.177,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1499.243,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1504.552,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1512.668,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1520.02,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1520.898,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1523.169,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1543.823,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicFastPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "time": 1550.461,
+                    "outputs": [
+                        {
+                            "predefined": "setMusicPostProcessing"
+                        }
+                    ]
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "lastPosition",
+                    "value": 3
+                },
+                {
+                    "predefined": "setMusicPostProcessing"
+                }
+            ]
+        },
+        {
+            "name": "strip",
+            "start": "26:25.5",
+            "end": "27:41",
+            "enterOutputs": [
+                {
+                    "condition": "isMusicPlaying",
+                    "type": "stopMusic",
+                    "duration": 1000
+                },
+                {
+                    "type": "updateBooleanState",
+                    "state": "isMusicPlaying",
+                    "value": true
+                }
+            ],
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "reward",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "reward",
+            "start": "28:52",
+            "end": "29:02"
+        },
+        {
+            "name": "reward_loop",
+            "start": "29:02",
+            "end": "30:01",
+            "loop": true,
+            "events": [
+                {
+                    "input": {
+                        "type": "response",
+                        "response": "stop"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "cum"
+                        }
+                    ]
+                },
+                {
+                    "condition": "systemIsVR",
+                    "input": {
+                        "type": "handGesture",
+                        "handGesture": "thumbsUp"
+                    },
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "cum"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cum",
+            "start": "30:04",
+            "end": "30:31",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "end",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        },
+        {
+            "name": "end",
+            "start": "30:39",
+            "end": "30:51.5",
+            "exitOutputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "intro_play_again",
+                    "transition": "fadeToBlack",
+                    "duration": 1000
+                }
+            ]
+        }
+    ],
+    "shapes": [
+        {
+            "id": "pole_bottom",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -0.03,
+                    "y": -1.76,
+                    "z": 2.63,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "pole_bottom_from_pole",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -0.03,
+                    "y": -2,
+                    "z": 5,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "pole",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -0.05,
+                    "y": 0.29,
+                    "z": 2.63,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "left_chair",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -3,
+                    "y": -1.4,
+                    "z": 4.8,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "right_chair",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 3,
+                    "y": -1.4,
+                    "z": 4.8,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "pole_from_chair_right",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -20,
+                    "y": 0,
+                    "z": 1.5,
+                    "size": 6
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "bottom_from_chair_right",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -20,
+                    "y": -3,
+                    "z": 1.5,
+                    "size": 6
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "pole_from_chair_left",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 20,
+                    "y": -2,
+                    "z": 1.5,
+                    "size": 6
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "bottom_from_chair_left",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 20,
+                    "y": -5,
+                    "z": 1.5,
+                    "size": 6
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "pole_from_bottom",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 0.20,
+                    "y": 2.04,
+                    "z": 3.18,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "left_chair_from_bottom",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -2.7,
+                    "y": 0.4,
+                    "z": 4,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        },
+        {
+            "id": "right_chair_from_bottom",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 2.9,
+                    "y": 0.4,
+                    "z": 4,
+                    "size": 1.5
+                },
+                {
+                    "time": "40:00"
+                }
+            ]
+        }
+    ]
+}
