@@ -68,6 +68,9 @@
         let updateUrls = () => {
             linkElements.forEach(element => {
                 element.href = element.originalHref;
+                if (element.href.includes("https://notsafefordev.github.io/") && !element.href.includes("/xplayvr-demo/")) {
+                    element.href = element.href.replace("https://notsafefordev.github.io/", "https://notsafefordev.github.io/xplayvr-demo/");
+                }
                 if (window.location.search.length > 0) {
                     element.href += "&" + window.location.search.substring(1);
                 }
