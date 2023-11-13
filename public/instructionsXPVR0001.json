@@ -10,37 +10,37 @@
         },
         "videos": [
             {
-                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_Final_2K.mp4",
+                "source": "XPlayVR_Haley_Spades_Final_2K.mp4",
                 "quality": "2K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_4K.mp4",
+                "source": "XPlayVR_Haley_Spades_4K.mp4",
                 "quality": "4K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_2K_2D.mp4",
+                "source": "XPlayVR_Haley_Spades_2K_2D.mp4",
                 "quality": "2K",
                 "is2D": true,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/haley-spades/XPlayVR_Haley_Spades_1K_2D.mp4",
+                "source": "XPlayVR_Haley_Spades_1K_2D.mp4",
                 "quality": "1K",
                 "is2D": true,
                 "queryParams": []
             }
         ],
         "overlayVideos": [],
-        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/XPlayVR_Haley_Spades.csv",
+        "csv": "XPlayVR_Haley_Spades.csv",
         "sounds": [],
         "music": [
             {
                 "id": "music",
-                "source": "https://nyc3.digitaloceanspaces.com/video-player/XPlayVR/games/haley_spades/ES_Heart%20Pound%20174bpm%20edited.mp3",
+                "source": "ES_Heart_Pound_174bpm_edited.mp3",
                 "queryParams": [],
                 "duration": "02:23",
                 "loopStart": "00:28.567",

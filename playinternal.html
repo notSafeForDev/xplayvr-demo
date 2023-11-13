@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>XPlayVR</title>
     <link rel="icon" type="image/x-icon" href="./favicon.png">
-    <script src="https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/release/bundle_internal_5.js"></script>
+    <script src="https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/release/bundle_internal_7.js"></script>
 </head>
 
 <body>
@@ -33,10 +33,14 @@
     <script>
         const urlSearchParams = new URLSearchParams(window.location.search);
         const instructionsName = urlSearchParams.get("instructions");
+        const fileDirectory = urlSearchParams.get("file-directory");
         document.addEventListener("DOMContentLoaded", () => {
             const placeholder = document.getElementById("xplayvr-player-placeholder");
             const player = document.createElement("xplayvr-player");
             player.setAttribute("height-in-percentage", "1");
+            if (fileDirectory) {
+                player.setAttribute("file-directory", fileDirectory);
+            }
             if (window.location.origin === "https://notsafefordev.github.io") {
                 player.setAttribute("instructions", "/xplayvr-demo/public/" + instructionsName + ".json");
             } else {

@@ -10,32 +10,32 @@
         },
         "videos": [
             {
-                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_4K_2.mp4",
+                "source": "XPlayVR_Alex_Coal_4K_2.mp4",
                 "quality": "4K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_Final_2K.mp4",
+                "source": "XPlayVR_Alex_Coal_Final_2K.mp4",
                 "quality": "2K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_2K_2D.mp4",
+                "source": "XPlayVR_Alex_Coal_2K_2D.mp4",
                 "quality": "2K",
                 "is2D": true,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/alex-coal/XPlayVR_Alex_Coal_1K_2D.mp4",
+                "source": "XPlayVR_Alex_Coal_1K_2D.mp4",
                 "quality": "1K",
                 "is2D": true,
                 "queryParams": []
             }
         ],
         "overlayVideos": [],
-        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/XPlayVR_Alex_Coal.csv",
+        "csv": "XPlayVR_Alex_Coal.csv",
         "sounds": [],
         "music": []
     },

@@ -10,32 +10,32 @@
         },
         "videos": [
             {
-                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k.mp4",
+                "source": "AriaValencia-XplayVR_2k.mp4",
                 "quality": "2K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_4k.mp4",
+                "source": "AriaValencia-XplayVR_4k.mp4",
                 "quality": "4K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k_2D.mp4",
+                "source": "AriaValencia-XplayVR_2k_2D.mp4",
                 "quality": "2K",
                 "is2D": true,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_1k_2D.mp4",
+                "source": "AriaValencia-XplayVR_1k_2D.mp4",
                 "quality": "1K",
                 "is2D": true,
                 "queryParams": []
             }
         ],
         "overlayVideos": [],
-        "csv": "https://xplayvr.b-cdn.net/aria-valenci/AriaValencia-XplayVR_2k.csv",
+        "csv": "AriaValencia-XplayVR_2k.csv",
         "sounds": [],
         "music": []
     },

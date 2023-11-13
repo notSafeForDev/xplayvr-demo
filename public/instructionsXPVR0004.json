@@ -10,25 +10,25 @@
         },
         "videos": [
             {
-                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_2k_new.mp4",
+                "source": "AnnaClaireClouds-AustinPierce-Xplay_2k_new.mp4",
                 "quality": "2K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_4k_new.mp4",
+                "source": "AnnaClaireClouds-AustinPierce-Xplay_4k_new.mp4",
                 "quality": "4K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_1k_2D.mp4",
+                "source": "AnnaClaireClouds-AustinPierce-Xplay_1k_2D.mp4",
                 "quality": "1K",
                 "is2D": true,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_2k_2D.mp4",
+                "source": "AnnaClaireClouds-AustinPierce-Xplay_2k_2D.mp4",
                 "quality": "2K",
                 "is2D": true,
                 "queryParams": []
@@ -37,7 +37,7 @@
         "overlayVideos": [
             {
                 "id": "channels",
-                "source": "https://xplayvr.b-cdn.net/anna-claire/AnnaClaireClouds-AustinPierce-Xplay_tv.mp4",
+                "source": "AnnaClaireClouds-AustinPierce-Xplay_tv.mp4",
                 "queryParams": [],
                 "duration": "02:53:54",
                 "events": [
@@ -289,7 +289,7 @@
                 ]
             }
         ],
-        "csv": "https://video-player.nyc3.digitaloceanspaces.com/XPlayVR/games/anna_claire/AnnaClaireClouds-AustinPierce-Xplay_game.csv",
+        "csv": "AnnaClaireClouds-AustinPierce-Xplay_game.csv",
         "sounds": [],
         "music": []
     },

@@ -10,32 +10,32 @@
         },
         "videos": [
             {
-                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_4K.mp4",
+                "source": "XPlayVR_Delilah_Day_4K.mp4",
                 "quality": "4K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_2K.mp4",
+                "source": "XPlayVR_Delilah_Day_2K.mp4",
                 "quality": "2K",
                 "is2D": false,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_2K_2D.mp4",
+                "source": "XPlayVR_Delilah_Day_2K_2D.mp4",
                 "quality": "2K",
                 "is2D": true,
                 "queryParams": []
             },
             {
-                "source": "https://xplayvr.b-cdn.net/delilah-day/new/XPlayVR_Delilah_Day_1K_2D.mp4",
+                "source": "XPlayVR_Delilah_Day_1K_2D.mp4",
                 "quality": "1K",
                 "is2D": true,
                 "queryParams": []
             }
         ],
         "overlayVideos": [],
-        "csv": "https://nyc3.digitaloceanspaces.com/video-player/XPlayVR/games/delilah_day/XPlayVR_Delilah_Day.csv",
+        "csv": "XPlayVR_Delilah_Day.csv",
         "sounds": [],
         "music": []
     },
