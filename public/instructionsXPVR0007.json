@@ -1,0 +1,640 @@
+{
+    "files": {
+        "queryParams": [],
+        "videoSettings": {
+            "degrees": 180,
+            "stereoLayout": "side_by_side",
+            "isFisheye": false,
+            "is2DAvailable": true,
+            "areCameraLensesVisible": false
+        },
+        "videos": [
+            {
+                "source": "XPVR0007-JazminLuv-XPVR_2k.mp4",
+                "quality": "2K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "XPVR0007-JazminLuv-XPVR_4k.mp4",
+                "quality": "4K",
+                "is2D": false,
+                "queryParams": []
+            },
+            {
+                "source": "XPVR0007-JazminLuv-XPVR_2k_2d.mp4",
+                "quality": "2K",
+                "is2D": true,
+                "queryParams": []
+            },
+            {
+                "source": "XPVR0007-JazminLuv-XPVR_1k_2d.mp4",
+                "quality": "1K",
+                "is2D": true,
+                "queryParams": []
+            }
+        ],
+        "overlayVideos": [],
+        "csv": "",
+        "sounds": [],
+        "music": []
+    },
+    "postProcessing": [
+        {
+            "id": "default",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 1,
+                    "midtones": 1,
+                    "highlights": 1,
+                    "saturation": 1
+                }
+            ]
+        },
+        {
+            "id": "selection",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 1,
+                    "midtones": 1,
+                    "highlights": 1,
+                    "saturation": 1
+                },
+                {
+                    "time": 3,
+                    "shadows": 0.5,
+                    "midtones": 0.5,
+                    "highlights": 0.5,
+                    "saturation": 0
+                },
+                {
+                    "time": 5,
+                    "shadows": 1,
+                    "midtones": 1,
+                    "highlights": 1,
+                    "saturation": 1
+                }
+            ]
+        },
+        {
+            "id": "music",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "shadows": 0.6,
+                    "midtones": 0.9,
+                    "highlights": 1.1,
+                    "saturation": 1.2
+                },
+                {
+                    "time": 0.75,
+                    "shadows": 0.3,
+                    "midtones": 0.7,
+                    "highlights": 1.1,
+                    "saturation": 1.2
+                },
+                {
+                    "time": 1.5,
+                    "shadows": 0.6,
+                    "midtones": 0.9,
+                    "highlights": 1.1,
+                    "saturation": 1.1
+                }
+            ]
+        }
+    ],
+    "states": {
+        "timeUntilStop": 0,
+        "stopForRewardThreshold": 2
+    },
+    "predefinedEvents": {
+        "incrementTimeUntilStop": {
+            "outputs": [
+                {
+                    "type": "updateNumberState",
+                    "state": "timeUntilStop",
+                    "value": "timeUntilStop + systemDeltaTime"
+                }
+            ]
+        },
+        "pointToDanceLeft": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "leftBubble"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_left",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "setPostProcessing",
+                    "postProcessing": "music",
+                    "loop": true
+                }
+            ]
+        },
+        "pointToDanceRight": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "rightBubble"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_right",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "setPostProcessing",
+                    "postProcessing": "music",
+                    "loop": true
+                }
+            ]
+        },
+        "pointToDancePoleHigh": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "topBubble"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_pole_high",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "setPostProcessing",
+                    "postProcessing": "music",
+                    "loop": true
+                }
+            ]
+        },
+        "pointToDancePoleLow": {
+            "input": {
+                "type": "shape",
+                "input": "point",
+                "shape": "bottomBubble"
+            },
+            "outputs": [
+                {
+                    "type": "changeScene",
+                    "scene": "dance_pole_low",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "type": "changeSpeed",
+                    "speed": 1
+                },
+                {
+                    "type": "setPostProcessing",
+                    "postProcessing": "music",
+                    "loop": true
+                }
+            ]
+        },
+        "stopForSelectionOrReward": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "condition": "timeUntilStop < stopForRewardThreshold",
+                    "type": "setPostProcessing",
+                    "postProcessing": "default",
+                    "loop": true
+                },
+                {
+                    "condition": "timeUntilStop < stopForRewardThreshold",
+                    "type": "changeScene",
+                    "scene": "selection",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "condition": "timeUntilStop >= stopForRewardThreshold",
+                    "type": "changeScene",
+                    "tag": "reward",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        },
+        "stopForSelectionOrFinalReward": {
+            "input": {
+                "type": "response",
+                "response": "stop"
+            },
+            "outputs": [
+                {
+                    "condition": "timeUntilStop < stopForRewardThreshold",
+                    "type": "setPostProcessing",
+                    "postProcessing": "default",
+                    "loop": true
+                },
+                {
+                    "condition": "timeUntilStop < stopForRewardThreshold",
+                    "type": "changeScene",
+                    "scene": "selection",
+                    "transition": "fadeToBlack"
+                },
+                {
+                    "condition": "timeUntilStop >= stopForRewardThreshold",
+                    "type": "changeScene",
+                    "scene": "reward_bj_end",
+                    "transition": "fadeToBlack"
+                }
+            ]
+        }
+    },
+    "predefinedOutputs": {
+        "resetTimeUntilStop": {
+            "type": "updateNumberState",
+            "state": "timeUntilStop",
+            "value": 0
+        },
+        "setDefaultPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "default",
+            "loop": true
+        },
+        "setSelectionPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "selection",
+            "loop": true
+        },
+        "setMusicPostProcessing": {
+            "type": "setPostProcessing",
+            "postProcessing": "music",
+            "loop": true
+        }
+    },
+    "scenes": [
+        {
+            "name": "intro",
+            "start": "00:00",
+            "end": "00:57"
+        },
+        {
+            "name": "selection",
+            "start": "00:57",
+            "end": "00:58.2",
+            "events": [
+                {
+                    "time": "00:58",
+                    "outputs": [
+                        {
+                            "type": "updateNumberState",
+                            "state": "timeUntilStop",
+                            "value": 0
+                        },
+                        {
+                            "type": "changeSpeed",
+                            "speed": 0
+                        },
+                        {
+                            "predefined": "setSelectionPostProcessing"
+                        }
+                    ]
+                },
+                {
+                    "start": "00:58",
+                    "predefined": "pointToDanceLeft"
+                },
+                {
+                    "start": "00:58",
+                    "predefined": "pointToDanceRight"
+                },
+                {
+                    "start": "00:58",
+                    "predefined": "pointToDancePoleLow"
+                },
+                {
+                    "start": "00:58",
+                    "predefined": "pointToDancePoleHigh"
+                }
+            ]
+        },
+        {
+            "name": "dance_pole_high",
+            "start": "00:59",
+            "end": "02:34.2",
+            "loop": false,
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "start": "01:01",
+                    "predefined": "pointToDanceLeft"
+                },
+                {
+                    "start": "01:01",
+                    "predefined": "pointToDanceRight"
+                },
+                {
+                    "predefined": "stopForSelectionOrReward"
+                }
+            ]
+        },
+        {
+            "name": "reward_pole_high",
+            "start": "02:34.2",
+            "end": "04:01.4",
+            "tags": [
+                "reward"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "resetTimeUntilStop"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "predefined": "stopForSelectionOrFinalReward"
+                },
+                {
+                    "time": "04:01",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "reward_bj_end",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dance_pole_low",
+            "start": "04:01.9",
+            "end": "05:46.3",
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "start": "04:03.9",
+                    "predefined": "pointToDanceLeft"
+                },
+                {
+                    "start": "04:03.9",
+                    "predefined": "pointToDanceRight"
+                },
+                {
+                    "predefined": "stopForSelectionOrReward"
+                }
+            ]
+        },
+        {
+            "name": "reward_pole_low",
+            "start": "05:46.4",
+            "end": "07:26.6",
+            "tags": [
+                "reward"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "resetTimeUntilStop"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "predefined": "stopForSelectionOrFinalReward"
+                }
+            ]
+        },
+        {
+            "name": "dance_left",
+            "start": "07:27.2",
+            "end": "08:37.5",
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "start": "07:29.2",
+                    "predefined": "pointToDancePoleHigh"
+                },
+                {
+                    "predefined": "stopForSelectionOrReward"
+                }
+            ]
+        },
+        {
+            "name": "reward_dance_left",
+            "start": "08:37.8",
+            "end": "11:04.3",
+            "tags": [
+                "reward"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "resetTimeUntilStop"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "predefined": "stopForSelectionOrFinalReward"
+                },
+                {
+                    "time": "11:04",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "reward_bj_end",
+                            "transition": "fadeToBlack"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dance_right",
+            "start": "11:05",
+            "end": "12:39",
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "start": "11:07",
+                    "predefined": "pointToDancePoleLow"
+                },
+                {
+                    "predefined": "stopForSelectionOrReward"
+                }
+            ]
+        },
+        {
+            "name": "reward_dance_right",
+            "start": "12:39.5",
+            "end": "15:08",
+            "tags": [
+                "reward"
+            ],
+            "enterOutputs": [
+                {
+                    "predefined": "resetTimeUntilStop"
+                }
+            ],
+            "events": [
+                {
+                    "predefined": "incrementTimeUntilStop"
+                },
+                {
+                    "predefined": "stopForSelectionOrFinalReward"
+                }
+            ]
+        },
+        {
+            "name": "reward_bj_end",
+            "start": "15:09.2",
+            "end": "32:37.3",
+            "events": [
+                {
+                    "start": "32:37",
+                    "outputs": [
+                        {
+                            "type": "changeScene",
+                            "scene": "selection",
+                            "transition": "fadeToBlack",
+                            "duration": 2000
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "shapes": [
+        {
+            "id": "leftBubble",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": -3.39,
+                    "y": -1.50,
+                    "z": 2.11,
+                    "size": 1.5
+                },
+                {
+                    "time": "04:01"
+                },
+                {
+                    "time": "04:01",
+                    "x": -7.00,
+                    "y": -0.22,
+                    "z": 3.56,
+                    "size": 2
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "rightBubble",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 2.03,
+                    "y": -1.22,
+                    "z": 1.77,
+                    "size": 1
+                },
+                {
+                    "time": "04:01"
+                },
+                {
+                    "time": "04:01",
+                    "x": 3.10,
+                    "y": -0.25,
+                    "z": 2.26
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "topBubble",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 0,
+                    "y": 0.32,
+                    "z": 0.59,
+                    "size": 0.25
+                },
+                {
+                    "time": "07:27.2"
+                },
+                {
+                    "time": "07:27.2",
+                    "x": 4.35,
+                    "y": -2.34,
+                    "z": 0.14,
+                    "size": 1.5
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        },
+        {
+            "id": "bottomBubble",
+            "type": "circle",
+            "keyframes": [
+                {
+                    "time": "00:00",
+                    "x": 0.07,
+                    "y": -1.58,
+                    "z": 0.54,
+                    "size": 0.5
+                },
+                {
+                    "time": "11:05"
+                },
+                {
+                    "time": "11:05",
+                    "x": -0.89,
+                    "y": -0.80,
+                    "z": 0.02,
+                    "size": 0.5
+                },
+                {
+                    "time": "01:00:00"
+                }
+            ]
+        }
+    ]
+}

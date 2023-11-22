@@ -1,0 +1,1625 @@
+{
+  "files": {
+    "videoSettings": {
+      "degrees": 180,
+      "stereoLayout": "side_by_side",
+      "isFisheye": false,
+      "is2DAvailable": true,
+      "areCameraLensesVisible": false
+    },
+    "videos": [
+      {
+        "source": "XPVR0014-SummerHart-180-POV-XPlayVR_4k.mp4",
+        "quality": "4K",
+        "is2D": false
+      },
+      {
+        "source": "XPVR0014-SummerHart-180-POV-XPlayVR_2k.mp4",
+        "quality": "2K",
+        "is2D": false
+      },
+      {
+        "source": "XPVR0014-SummerHart-180-POV-XPlayVR_2k_2D.mp4",
+        "quality": "2K",
+        "is2D": true
+      },
+      {
+        "source": "XPVR0014-SummerHart-180-POV-XPlayVR_1k_2D.mp4",
+        "quality": "1K",
+        "is2D": true
+      }
+    ],
+    "overlayVideos": [],
+    "sounds": [],
+    "music": []
+  },
+  "postProcessing": [],
+  "states": {
+    "questions": 0,
+    "correctAnswersAtStartOfRound": 0,
+    "correctAnswers": 0,
+    "totalExtendedFingers": 0,
+    "showFingersDuration": 0,
+    "haveExtendedFingers": false,
+    "isShowingTryAgainPopup": false,
+    "answeredCorrectly": false
+  },
+  "predefinedEvents": {
+    "takeNumberInput": {
+      "condition": "(systemIs2D && haveExtendedFingers === false) || systemIsVR",
+      "input": {
+        "type": "fingerCount",
+        "trigger": "change"
+      },
+      "outputs": [
+        {
+          "type": "updateNumberState",
+          "state": "showFingersDuration",
+          "value": 0
+        },
+        {
+          "type": "updateNumberState",
+          "state": "totalExtendedFingers",
+          "value": "systemTotalExtendedFingers"
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveExtendedFingers",
+          "value": true
+        }
+      ]
+    },
+    "newQuestion": {
+      "outputs": [
+        {
+          "type": "updateNumberState",
+          "state": "showFingersDuration",
+          "value": 0
+        },
+        {
+          "type": "updateNumberState",
+          "state": "totalExtendedFingers",
+          "value": 0
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveExtendedFingers",
+          "value": false
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": false
+        }
+      ]
+    },
+    "resetFingerStates": {
+      "outputs": [
+        {
+          "type": "updateNumberState",
+          "state": "showFingersDuration",
+          "value": 0
+        },
+        {
+          "type": "updateNumberState",
+          "state": "totalExtendedFingers",
+          "value": 0
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveExtendedFingers",
+          "value": false
+        }
+      ]
+    },
+    "incrementShowFingersDuration": {
+      "outputs": [
+        {
+          "condition": "totalExtendedFingers > 0",
+          "type": "updateNumberState",
+          "state": "showFingersDuration",
+          "value": "showFingersDuration + systemDeltaTime"
+        }
+      ]
+    },
+    "showTryAgainPopup": {
+      "time": "09:27.5",
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 0
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "isShowingTryAgainPopup",
+          "value": true
+        },
+        {
+          "type": "showPopup",
+          "text": "Do you want to try again?\n\nGive a thumbs up or a thumbs down"
+        }
+      ]
+    },
+    "waitForYesResponseToTryAgainPopup": {
+      "start": "09:27.5",
+      "condition": "isShowingTryAgainPopup",
+      "input": {
+        "type": "handGesture",
+        "handGesture": "thumbsUp"
+      },
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "isShowingTryAgainPopup",
+          "value": false
+        },
+        {
+          "type": "changeScene",
+          "scene": "intro_2",
+          "transition": "fadeToBlack"
+        },
+        {
+          "type": "hidePopup"
+        }
+      ]
+    },
+    "waitForNoResponseToTryAgainPopup": {
+      "start": "09:27.5",
+      "condition": "isShowingTryAgainPopup",
+      "input": {
+        "type": "handGesture",
+        "handGesture": "thumbsDown"
+      },
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "isShowingTryAgainPopup",
+          "value": false
+        },
+        {
+          "type": "hidePopup"
+        },
+        {
+          "type": "exitGame"
+        }
+      ]
+    },
+    "answerIs1": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 1"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs2": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 2"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs3": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 3"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs4": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 4"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs5": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 5"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs6": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 6"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs7": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 7"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs8": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 8"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "finalAnswerIs8": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 8"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "scene": "evaluation_reward_full",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "answerIs9": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 9"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    },
+    "answerIs10": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "answeredCorrectly",
+          "value": "totalExtendedFingers === 10"
+        },
+        {
+          "condition": "showFingersDuration > 1.5",
+          "type": "changeScene",
+          "tag": "question",
+          "tagOrder": "next",
+          "requiresPreload": true
+        }
+      ]
+    }
+  },
+  "predefinedOutputs": {
+    "resetShowFingersDuration": {
+      "type": "updateNumberState",
+      "state": "showFingersDuration",
+      "value": 0
+    },
+    "resetTotalExtendedFingers": {
+      "type": "updateNumberState",
+      "state": "totalExtendedFingers",
+      "value": 0
+    },
+    "resetHaveExtendedFingers": {
+      "type": "updateBooleanState",
+      "state": "haveExtendedFingers",
+      "value": false
+    },
+    "incrementQuestions": {
+      "type": "updateNumberState",
+      "state": "questions",
+      "value": "questions + 1"
+    },
+    "incrementCorrectAnswers": {
+      "condition": "answeredCorrectly",
+      "type": "updateNumberState",
+      "state": "correctAnswers",
+      "value": "correctAnswers + 1"
+    },
+    "showCorrectAnswers": {
+      "type": "disabled",
+      "text": "Correct answers: {correctAnswers} / {(questions)} ({(correctAnswers / (questions)) * 100}%)"
+    },
+    "hideCorrectAnswers": {
+      "type": "hidePopup"
+    },
+    "playCorrectAnswerSoundEffect": {
+      "condition": "answeredCorrectly",
+      "type": "playSoundEffect",
+      "name": "correct"
+    },
+    "giveNoReward": {
+      "condition": "questions >= 4 && correctAnswers <= questions * 0.33",
+      "type": "changeScene",
+      "scene": "evaluation_no_reward",
+      "transition": "fadeToBlack"
+    },
+    "giveSmallReward": {
+      "condition": "questions >= 7 && correctAnswers > questions * 0.33 && correctAnswers <= questions * 0.66",
+      "type": "changeScene",
+      "scene": "evaluation_reward_small",
+      "transition": "fadeToBlack"
+    }
+  },
+  "scenes": [
+    {
+      "name": "intro",
+      "start": "00:00",
+      "end": "00:48"
+    },
+    {
+      "name": "intro_q_1",
+      "start": "00:48",
+      "end": "00:53",
+      "enterOutputs": [
+        {
+          "type": "updateNumberState",
+          "state": "correctAnswers",
+          "value": 0
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "intro_q_1_wait",
+      "start": "00:53",
+      "end": "00:59",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "condition": "showFingersDuration > 1 && totalExtendedFingers === 8",
+          "outputs": [
+            {
+              "predefined": "resetHaveExtendedFingers"
+            },
+            {
+              "predefined": "resetTotalExtendedFingers"
+            },
+            {
+              "predefined": "resetShowFingersDuration"
+            },
+            {
+              "type": "changeScene",
+              "scene": "intro_q_1_correct",
+              "requiresPreload": true
+            }
+          ]
+        },
+        {
+          "condition": "showFingersDuration > 1 && totalExtendedFingers > 0 && totalExtendedFingers !== 8",
+          "outputs": [
+            {
+              "predefined": "resetHaveExtendedFingers"
+            },
+            {
+              "predefined": "resetTotalExtendedFingers"
+            },
+            {
+              "predefined": "resetShowFingersDuration"
+            },
+            {
+              "type": "changeScene",
+              "scene": "intro_q_1_wrong",
+              "requiresPreload": true
+            }
+          ]
+        },
+        {
+          "time": "00:58.5",
+          "outputs": [
+            {
+              "condition": "totalExtendedFingers === 8",
+              "type": "changeScene",
+              "scene": "intro_q_1_correct"
+            },
+            {
+              "condition": "totalExtendedFingers !== 8",
+              "type": "changeScene",
+              "scene": "intro_q_1_wrong"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_q_1_correct",
+      "start": "00:59",
+      "end": "01:03.5",
+      "enterOutputs": [
+        {
+          "predefined": "resetHaveExtendedFingers"
+        },
+        {
+          "type": "playSoundEffect",
+          "name": "correct"
+        },
+        {
+          "type": "updateNumberState",
+          "state": "correctAnswers",
+          "value": "correctAnswers + 1"
+        }
+      ],
+      "events": [
+        {
+          "time": "01:03.3",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "intro_q_2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_q_1_wrong",
+      "start": "01:03.5",
+      "end": "01:08",
+      "enterOutputs": [
+        {
+          "predefined": "resetHaveExtendedFingers"
+        }
+      ],
+      "events": [
+        {
+          "time": "01:07.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "intro_q_2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_q_2",
+      "start": "01:11",
+      "end": "01:17",
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "intro_q_2_wait",
+      "start": "01:17",
+      "end": "01:22.5",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "condition": "showFingersDuration > 1 && totalExtendedFingers === 1",
+          "outputs": [
+            {
+              "predefined": "resetHaveExtendedFingers"
+            },
+            {
+              "predefined": "resetTotalExtendedFingers"
+            },
+            {
+              "predefined": "resetShowFingersDuration"
+            },
+            {
+              "type": "changeScene",
+              "scene": "intro_q_2_correct",
+              "requiresPreload": true
+            }
+          ]
+        },
+        {
+          "condition": "showFingersDuration > 1 && totalExtendedFingers > 0 && totalExtendedFingers !== 1",
+          "outputs": [
+            {
+              "predefined": "resetHaveExtendedFingers"
+            },
+            {
+              "predefined": "resetTotalExtendedFingers"
+            },
+            {
+              "predefined": "resetShowFingersDuration"
+            },
+            {
+              "type": "changeScene",
+              "scene": "intro_q_2_wrong",
+              "requiresPreload": true
+            }
+          ]
+        },
+        {
+          "time": "01:22.3",
+          "outputs": [
+            {
+              "condition": "totalExtendedFingers === 1",
+              "type": "changeScene",
+              "scene": "intro_q_2_correct"
+            },
+            {
+              "condition": "totalExtendedFingers !== 1",
+              "type": "changeScene",
+              "scene": "intro_q_2_wrong"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_q_2_correct",
+      "start": "01:22.5",
+      "end": "01:25",
+      "enterOutputs": [
+        {
+          "predefined": "resetHaveExtendedFingers"
+        },
+        {
+          "type": "playSoundEffect",
+          "name": "correct"
+        },
+        {
+          "type": "updateNumberState",
+          "state": "correctAnswers",
+          "value": "correctAnswers + 1"
+        }
+      ],
+      "events": [
+        {
+          "time": "01:24.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "continue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_q_2_wrong",
+      "start": "01:28",
+      "end": "01:31",
+      "events": [
+        {
+          "time": "01:30.8",
+          "outputs": [
+            {
+              "condition": "correctAnswers === 0",
+              "type": "changeScene",
+              "scene": "retry"
+            },
+            {
+              "condition": "correctAnswers > 0",
+              "type": "changeScene",
+              "scene": "continue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "continue",
+      "start": "01:35",
+      "end": "01:42",
+      "enterOutputs": [
+        {
+          "type": "updateNumberState",
+          "state": "correctAnswers",
+          "value": 0
+        }
+      ],
+      "events": [
+        {
+          "time": "01:41.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "intro_2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "retry",
+      "start": "01:45",
+      "end": "01:51",
+      "enterOutputs": [
+        {
+          "type": "updateNumberState",
+          "state": "correctAnswers",
+          "value": 0
+        }
+      ],
+      "events": [
+        {
+          "time": "01:50.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "intro_q_1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intro_2",
+      "start": "01:52.8",
+      "end": "01:58",
+      "events": [
+        {
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "q_1",
+      "start": "01:58",
+      "end": "02:04",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_1_wait",
+      "start": "02:04",
+      "end": "02:07",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs7"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_2",
+      "start": "02:07",
+      "end": "02:12",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_2_wait",
+      "start": "02:12",
+      "end": "02:19",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs6"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_3",
+      "start": "02:19",
+      "end": "02:25",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_3_wait",
+      "start": "02:25",
+      "end": "02:32",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs5"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_4",
+      "start": "02:32",
+      "end": "02:36",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_4_wait",
+      "start": "02:36",
+      "end": "02:42",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs8"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_5",
+      "start": "02:42",
+      "end": "02:47",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_5_wait",
+      "start": "02:47",
+      "end": "02:51",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs6"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_6",
+      "start": "02:51",
+      "end": "02:59",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_6_wait",
+      "start": "02:59",
+      "end": "03:04",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs4"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_7",
+      "start": "03:04",
+      "end": "03:08",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_7_wait",
+      "start": "03:08",
+      "end": "03:13",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs9"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_8",
+      "start": "03:13",
+      "end": "03:18",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_8_wait",
+      "start": "03:18",
+      "end": "03:24",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs10"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_9",
+      "start": "03:24",
+      "end": "03:29",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_9_wait",
+      "start": "03:29",
+      "end": "03:34",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs5"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_10",
+      "start": "03:34",
+      "end": "03:40",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_10_wait",
+      "start": "03:40",
+      "end": "03:45",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs1"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_11",
+      "start": "03:45",
+      "end": "03:52",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_11_wait",
+      "start": "03:52",
+      "end": "03:59",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs7"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_12",
+      "start": "03:59",
+      "end": "04:05",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_12_wait",
+      "start": "04:05",
+      "end": "04:11",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs2"
+        },
+        {
+          "start": "04:10.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "q_14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "q_14",
+      "start": "04:22",
+      "end": "04:26",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_14_wait",
+      "start": "04:26",
+      "end": "04:33",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "answerIs5"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "giveNoReward"
+        },
+        {
+          "predefined": "giveSmallReward"
+        }
+      ]
+    },
+    {
+      "name": "q_15",
+      "start": "04:33",
+      "end": "04:38",
+      "tags": [
+        "question"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "incrementQuestions"
+        },
+        {
+          "predefined": "incrementCorrectAnswers"
+        },
+        {
+          "predefined": "showCorrectAnswers"
+        },
+        {
+          "predefined": "playCorrectAnswerSoundEffect"
+        }
+      ],
+      "exitOutputs": [
+        {
+          "predefined": "hideCorrectAnswers"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "newQuestion"
+        }
+      ]
+    },
+    {
+      "name": "q_15_wait",
+      "start": "04:38",
+      "end": "04:41",
+      "events": [
+        {
+          "predefined": "takeNumberInput"
+        },
+        {
+          "predefined": "incrementShowFingersDuration"
+        },
+        {
+          "predefined": "finalAnswerIs8"
+        },
+        {
+          "start": "04:40.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "evaluation_reward_full",
+              "transition": "fadeToBlack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "evaluation_no_reward",
+      "start": "05:17",
+      "end": "05:30.3",
+      "events": [
+        {
+          "time": "05:30.1",
+          "predefined": "showTryAgainPopup"
+        },
+        {
+          "start": "05:30.1",
+          "predefined": "waitForYesResponseToTryAgainPopup"
+        },
+        {
+          "start": "05:30.1",
+          "predefined": "waitForNoResponseToTryAgainPopup"
+        }
+      ]
+    },
+    {
+      "name": "evaluation_reward_small",
+      "start": "05:30.3",
+      "end": "05:42",
+      "events": [
+        {
+          "time": "05:41.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "reward_small",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "evaluation_reward_full",
+      "start": "05:43.5",
+      "end": "05:56",
+      "events": [
+        {
+          "time": "05:55.8",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "reward_full",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reward_small",
+      "start": "05:56.5",
+      "end": "09:27.7",
+      "events": [
+        {
+          "time": "09:27.5",
+          "predefined": "showTryAgainPopup"
+        },
+        {
+          "start": "09:27.5",
+          "predefined": "waitForYesResponseToTryAgainPopup"
+        },
+        {
+          "start": "09:27.5",
+          "predefined": "waitForNoResponseToTryAgainPopup"
+        }
+      ]
+    },
+    {
+      "name": "end",
+      "start": "09:27.7",
+      "end": "09:27.9",
+      "enterOutputs": [
+        {
+          "type": "exitGame"
+        }
+      ]
+    },
+    {
+      "name": "reward_full",
+      "start": "09:27.9",
+      "end": "18:41",
+      "events": [
+        {
+          "time": "18:39",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            },
+            {
+              "type": "changeScene",
+              "scene": "end",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shapes": []
+}
