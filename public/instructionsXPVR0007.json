@@ -107,7 +107,7 @@
     ],
     "states": {
         "timeUntilStop": 0,
-        "stopForRewardThreshold": 2
+        "stopForRewardThreshold": 45
     },
     "predefinedEvents": {
         "incrementTimeUntilStop": {
