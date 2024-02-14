@@ -1,0 +1,977 @@
+{
+  "files": {
+    "videoSettings": {
+      "degrees": 180,
+      "stereoLayout": "side_by_side",
+      "isFisheye": false,
+      "is2DAvailable": false,
+      "areCameraLensesVisible": false
+    },
+    "videos": [
+      {
+        "source": "Micky Muffin Training.mp4",
+        "quality": "4K",
+        "is2D": false
+      }
+    ],
+    "overlayVideos": [],
+    "sounds": [],
+    "music": []
+  },
+  "postProcessing": [],
+  "states": {
+    "showingStopPopup": false,
+    "haveTriedExcersise1": false,
+    "haveTriedExcersise2": false,
+    "haveTriedExcersise3": false,
+    "haveTriedExcersise4": false
+  },
+  "predefinedEvents": {
+    "resetHaveTriedStates": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise1",
+          "value": false
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise2",
+          "value": false
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise3",
+          "value": false
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise4",
+          "value": false
+        }
+      ]
+    },
+    "useStopResponseToStopExcersise": {
+      "condition": "showingStopPopup === false",
+      "input": {
+        "type": "response",
+        "response": "stop"
+      },
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "showingStopPopup",
+          "value": true
+        },
+        {
+          "type": "changeSpeed",
+          "speed": 0
+        },
+        {
+          "type": "showPopup",
+          "title": "Stop?",
+          "text": "Are you sure you want to stop the excersise?\n\nGive a thumbs up or a thumbs down to confirm"
+        }
+      ]
+    },
+    "giveThumbsUpToStopExcersise": {
+      "condition": "showingStopPopup === true",
+      "input": {
+        "type": "handGesture",
+        "handGesture": "thumbsUp"
+      },
+      "outputs": [
+        {
+          "type": "hidePopup"
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "showingStopPopup",
+          "value": false
+        },
+        {
+          "type": "changeScene",
+          "tag": "selection",
+          "tagOrder": "previous",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "giveThumbsDownToContinueExcersise": {
+      "condition": "showingStopPopup === true",
+      "input": {
+        "type": "handGesture",
+        "handGesture": "thumbsDown"
+      },
+      "outputs": [
+        {
+          "type": "hidePopup"
+        },
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "showingStopPopup",
+          "value": false
+        }
+      ]
+    },
+    "chooseExcersise1": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "excersise_1"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "condition": "haveTriedExcersise1 === false",
+          "type": "changeScene",
+          "tag": "excersise_1",
+          "transition": "fadeToBlack"
+        },
+        {
+          "condition": "haveTriedExcersise1",
+          "type": "changeScene",
+          "tag": "excersise_1_start",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "chooseExcersise2": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "excersise_2"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "condition": "haveTriedExcersise2 === false",
+          "type": "changeScene",
+          "tag": "excersise_2",
+          "transition": "fadeToBlack"
+        },
+        {
+          "condition": "haveTriedExcersise2",
+          "type": "changeScene",
+          "tag": "excersise_2_start",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "chooseExcersise3": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "excersise_3"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "condition": "haveTriedExcersise3 === false",
+          "type": "changeScene",
+          "tag": "excersise_3",
+          "transition": "fadeToBlack"
+        },
+        {
+          "condition": "haveTriedExcersise3",
+          "type": "changeScene",
+          "tag": "excersise_3_start",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "chooseExcersise4": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "excersise_4"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "condition": "haveTriedExcersise4 === false",
+          "type": "changeScene",
+          "tag": "excersise_4",
+          "transition": "fadeToBlack"
+        },
+        {
+          "condition": "haveTriedExcersise4",
+          "type": "changeScene",
+          "tag": "excersise_4_start",
+          "transition": "fadeToBlack"
+        }
+      ]
+    },
+    "changeToStripScene": {
+      "outputs": [
+        {
+          "type": "changeScene",
+          "tag": "strip",
+          "transition": "fadeToBlack"
+        }
+      ]
+    }
+  },
+  "predefinedOutputs": {},
+  "scenes": [
+    {
+      "name": "intro",
+      "start": "00:00:00",
+      "end": "00:01:30"
+    },
+    {
+      "name": "r_1_selection",
+      "start": "00:01:30",
+      "end": "00:01:34",
+      "tags": [
+        "selection"
+      ],
+      "enterOutputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ],
+      "events": [
+        {
+          "time": "00:01:32",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            }
+          ]
+        },
+        {
+          "start": "00:01:30",
+          "end": "00:01:32.2",
+          "predefined": "chooseExcersise1"
+        },
+        {
+          "start": "00:01:30.2",
+          "end": "00:01:32.2",
+          "predefined": "chooseExcersise2"
+        },
+        {
+          "start": "00:01:30.4",
+          "end": "00:01:32.2",
+          "predefined": "chooseExcersise3"
+        },
+        {
+          "start": "00:01:30.6",
+          "end": "00:01:32.2",
+          "predefined": "chooseExcersise4"
+        }
+      ]
+    },
+    {
+      "name": "intro_timer",
+      "start": "00:01:37",
+      "end": "00:02:26"
+    },
+    {
+      "name": "r_1_excersise_1",
+      "start": "00:02:28.5",
+      "end": "00:03:03",
+      "tags": [
+        "excersise_1"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_1_start",
+      "start": "00:03:03",
+      "end": "00:05:58",
+      "tags": [
+        "excersise_1_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise1",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:05:57.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_2",
+      "start": "00:06:01",
+      "end": "00:06:17.7",
+      "tags": [
+        "excersise_2"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_2_start",
+      "start": "00:06:17.7",
+      "end": "00:07:34",
+      "tags": [
+        "excersise_2_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise2",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:07:33.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_3",
+      "start": "00:07:39",
+      "end": "00:08:29",
+      "tags": [
+        "excersise_3"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_3_start",
+      "start": "00:08:29",
+      "end": "00:09:59",
+      "tags": [
+        "excersise_3_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise3",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:09:58.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_4",
+      "start": "00:10:02",
+      "end": "00:10:49.5",
+      "tags": [
+        "excersise_4"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_1_excersise_4_start",
+      "start": "00:10:49.5",
+      "end": "00:12:14",
+      "tags": [
+        "excersise_4_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise4",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:12:13.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_1_q_strip",
+      "start": "00:12:17.5",
+      "end": "00:12:51",
+      "tags": [
+        "strip"
+      ],
+      "events": [
+        {
+          "start": "12:42",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            },
+            {
+              "type": "changeScene",
+              "scene": "r_1_r_strip_yes"
+            }
+          ]
+        },
+        {
+          "start": "12:48",
+          "input": {
+            "type": "response",
+            "response": "no"
+          },
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            },
+            {
+              "type": "changeScene",
+              "scene": "r_1_r_strip_no"
+            }
+          ]
+        },
+        {
+          "time": "12:50.5",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r_1_r_strip_yes",
+      "start": "00:12:51",
+      "end": "00:13:07.2",
+      "events": [
+        {
+          "time": "00:13:07",
+          "predefined": "resetHaveTriedStates"
+        }
+      ]
+    },
+    {
+      "name": "r_2_selection",
+      "start": "00:13:07.2",
+      "end": "00:13:14",
+      "tags": [
+        "selection"
+      ],
+      "enterOutputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ],
+      "events": [
+        {
+          "time": "00:13:12.8",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            }
+          ]
+        },
+        {
+          "start": "00:13:11",
+          "end": "00:13:13",
+          "predefined": "chooseExcersise1"
+        },
+        {
+          "start": "00:13:11.2",
+          "end": "00:13:13",
+          "predefined": "chooseExcersise2"
+        },
+        {
+          "start": "00:13:11.4",
+          "end": "00:13:13",
+          "predefined": "chooseExcersise3"
+        },
+        {
+          "start": "00:13:11.6",
+          "end": "00:13:13",
+          "predefined": "chooseExcersise4"
+        }
+      ]
+    },
+    {
+      "name": "r_1_r_strip_no",
+      "start": "00:13:17",
+      "end": "00:13:31",
+      "events": [
+        {
+          "start": "00:13:30.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "r_1_selection",
+              "transition": "fadeToBlack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_1",
+      "start": "00:13:34",
+      "end": "00:14:16",
+      "tags": [
+        "excersise_1"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_1_start",
+      "start": "00:14:16",
+      "end": "00:15:40.5",
+      "tags": [
+        "excersise_1_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise1",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:15:40",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_2",
+      "start": "00:15:49",
+      "end": "00:16:35",
+      "tags": [
+        "excersise_2"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_2_start",
+      "start": "00:16:35",
+      "end": "00:17:59",
+      "tags": [
+        "excersise_2_start"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:17:58.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_3",
+      "start": "00:18:03",
+      "end": "00:18:27",
+      "tags": [
+        "excersise_3"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_3_start",
+      "start": "00:18:27",
+      "end": "00:19:55",
+      "tags": [
+        "excersise_3_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise3",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:19:54.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_4",
+      "start": "00:19:59",
+      "end": "00:20:42",
+      "tags": [
+        "excersise_4"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_2_excersise_4_start",
+      "start": "00:20:42",
+      "end": "00:23:48",
+      "tags": [
+        "excersise_4_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise4",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:23:47.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_2_q_strip",
+      "start": "00:23:51",
+      "end": "00:24:11",
+      "tags": [
+        "strip"
+      ],
+      "events": [
+        {
+          "start": "24:08",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            },
+            {
+              "type": "changeScene",
+              "scene": "r_2_r_strip_yes"
+            }
+          ]
+        },
+        {
+          "start": "24:08",
+          "input": {
+            "type": "response",
+            "response": "no"
+          },
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            },
+            {
+              "type": "changeScene",
+              "scene": "r_2_r_strip_no"
+            }
+          ]
+        },
+        {
+          "time": "24:10",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r_2_r_strip_no",
+      "start": "00:24:11",
+      "end": "00:24:15",
+      "events": [
+        {
+          "start": "00:24:14.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "r_2_selection",
+              "transition": "fadeToBlack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r_2_r_strip_yes",
+      "start": "00:24:16.5",
+      "end": "00:25:06",
+      "events": [
+        {
+          "time": "00:25:05",
+          "predefined": "resetHaveTriedStates"
+        },
+        {
+          "time": "00:25:05",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            },
+            {
+              "type": "showPopup",
+              "title": "WIP",
+              "text": "More excersises coming soon!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "temp",
+      "start": "02:00:00",
+      "end": "02:00:00",
+      "tags": [
+        "excersise_1",
+        "excersise_2",
+        "excersise_3",
+        "excersise_4",
+        "excersise_1_start",
+        "excersise_2_start",
+        "excersise_3_start",
+        "excersise_4_start",
+        "strip"
+      ]
+    }
+  ],
+  "shapes": [
+    {
+      "id": "excersise_1",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -1,
+          "y": 0,
+          "z": 1.5,
+          "size": 0.5
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "excersise_2",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 1,
+          "y": 0,
+          "z": 1.5,
+          "size": 0.5
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "excersise_3",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -1,
+          "y": -0.8,
+          "z": 1.5,
+          "size": 0.5
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "excersise_4",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 1,
+          "y": -0.8,
+          "z": 1.5,
+          "size": 0.5
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    }
+  ]
+}
