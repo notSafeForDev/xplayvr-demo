@@ -24,7 +24,10 @@
     "haveTriedExcersise1": false,
     "haveTriedExcersise2": false,
     "haveTriedExcersise3": false,
-    "haveTriedExcersise4": false
+    "haveTriedExcersise4": false,
+    "haveTriedExcersise5": false,
+    "didHighFive": false,
+    "haveDoneEnoughOfTheExcersise": false
   },
   "predefinedEvents": {
     "resetHaveTriedStates": {
@@ -48,6 +51,20 @@
           "type": "updateBooleanState",
           "state": "haveTriedExcersise4",
           "value": false
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise5",
+          "value": false
+        }
+      ]
+    },
+    "haveDoneEnoughOfTheExcersise": {
+      "outputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveDoneEnoughOfTheExcersise",
+          "value": true
         }
       ]
     },
@@ -90,9 +107,16 @@
           "value": false
         },
         {
+          "condition": "haveDoneEnoughOfTheExcersise === false",
           "type": "changeScene",
           "tag": "selection",
           "tagOrder": "previous",
+          "transition": "fadeToBlack"
+        },
+        {
+          "condition": "haveDoneEnoughOfTheExcersise === true",
+          "type": "changeScene",
+          "tag": "strip",
           "transition": "fadeToBlack"
         }
       ]
@@ -218,6 +242,31 @@
         }
       ]
     },
+    "highFive": {
+      "start": "00:36:24.8",
+      "end": "00:36:26",
+      "input": {
+        "type": "shape",
+        "shape": "high_five_VR",
+        "input": "touch",
+        "trigger": "start"
+      },
+      "outputs": [
+        {
+          "type": "playSoundEffect",
+          "name": "smack"
+        },
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        },
+        {
+          "type": "updateBooleanState",
+          "state": "didHighFive",
+          "value": true
+        }
+      ]
+    },
     "changeToStripScene": {
       "outputs": [
         {
@@ -243,6 +292,11 @@
         "selection"
       ],
       "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveDoneEnoughOfTheExcersise",
+          "value": false
+        },
         {
           "type": "changeSpeed",
           "speed": 1
@@ -320,6 +374,10 @@
       ],
       "events": [
         {
+          "start": "00:03:41",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -368,6 +426,10 @@
         }
       ],
       "events": [
+        {
+          "start": "00:06:59",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
         {
           "predefined": "useStopResponseToStopExcersise"
         },
@@ -418,6 +480,10 @@
       ],
       "events": [
         {
+          "start": "00:09:12",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -467,6 +533,10 @@
       ],
       "events": [
         {
+          "start": "00:11:30",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -487,6 +557,12 @@
       "end": "00:12:51",
       "tags": [
         "strip"
+      ],
+      "enterOutputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
       ],
       "events": [
         {
@@ -553,6 +629,11 @@
         "selection"
       ],
       "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveDoneEnoughOfTheExcersise",
+          "value": false
+        },
         {
           "type": "changeSpeed",
           "speed": 1
@@ -642,6 +723,10 @@
       ],
       "events": [
         {
+          "start": "00:15:03",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -683,6 +768,10 @@
         "excersise_2_start"
       ],
       "events": [
+        {
+          "start": "00:17:18",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
         {
           "predefined": "useStopResponseToStopExcersise"
         },
@@ -733,6 +822,10 @@
       ],
       "events": [
         {
+          "start": "00:19:08",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -782,6 +875,10 @@
       ],
       "events": [
         {
+          "start": "00:21:24",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
           "predefined": "useStopResponseToStopExcersise"
         },
         {
@@ -802,6 +899,12 @@
       "end": "00:24:11",
       "tags": [
         "strip"
+      ],
+      "enterOutputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
       ],
       "events": [
         {
@@ -874,20 +977,355 @@
         {
           "time": "00:25:05",
           "predefined": "resetHaveTriedStates"
+        }
+      ]
+    },
+    {
+      "name": "r_3_selection",
+      "start": "00:25:06",
+      "end": "00:25:07",
+      "tags": [
+        "selection"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveDoneEnoughOfTheExcersise",
+          "value": false
         },
         {
-          "time": "00:25:05",
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ],
+      "events": [
+        {
+          "time": "00:25:06.8",
           "outputs": [
             {
               "type": "changeSpeed",
               "speed": 0
-            },
-            {
-              "type": "showPopup",
-              "title": "WIP",
-              "text": "More excersises coming soon!"
             }
           ]
+        },
+        {
+          "start": "00:25:06",
+          "predefined": "chooseExcersise1"
+        },
+        {
+          "start": "00:25:06.2",
+          "predefined": "chooseExcersise2"
+        },
+        {
+          "start": "00:25:06.4",
+          "predefined": "chooseExcersise3"
+        },
+        {
+          "start": "00:25:06.6",
+          "predefined": "chooseExcersise4"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_1",
+      "start": "00:25:30",
+      "end": "00:26:13",
+      "tags": [
+        "excersise_1"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_1_start",
+      "start": "00:26:13",
+      "end": "00:27:46",
+      "tags": [
+        "excersise_1_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise1",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "start": "00:26:54",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:27:45.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_2",
+      "start": "00:27:50",
+      "end": "00:27:56",
+      "tags": [
+        "excersise_2"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_2_start",
+      "start": "00:27:56",
+      "end": "00:29:25",
+      "tags": [
+        "excersise_2_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise2",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "start": "00:28:37",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:29:24.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_3",
+      "start": "00:29:29",
+      "end": "00:30:03.5",
+      "tags": [
+        "excersise_3"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_3_start",
+      "start": "00:30:03.5",
+      "end": "00:31:35",
+      "tags": [
+        "excersise_3_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise3",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "start": "00:30:44",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:31:34.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_4",
+      "start": "00:31:39",
+      "end": "00:31:57.5",
+      "tags": [
+        "excersise_4"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_4_start",
+      "start": "00:31:57.5",
+      "end": "00:34:44",
+      "tags": [
+        "excersise_4_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise4",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "start": "00:33:07",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:34:43.5",
+          "predefined": "changeToStripScene"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_5",
+      "start": "00:34:48",
+      "end": "00:35:07.5",
+      "tags": [
+        "excersise_5"
+      ],
+      "events": [
+        {
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        }
+      ]
+    },
+    {
+      "name": "r_3_excersise_5_start",
+      "start": "00:35:07.5",
+      "end": "00:36:42",
+      "tags": [
+        "excersise_5_start"
+      ],
+      "enterOutputs": [
+        {
+          "type": "updateBooleanState",
+          "state": "haveTriedExcersise5",
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "time": "00:36:25.85",
+          "condition": "didHighFive === false",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 0
+            }
+          ]
+        },
+        {
+          "predefined": "highFive",
+          "condition": "systemIsVR && didHighFive === false"
+        },
+        {
+          "predefined": "highFive",
+          "condition": "systemIs2D && didHighFive === false",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "high_five_2D"
+          }
+        },
+        {
+          "time": "00:36:26",
+          "outputs": [
+            {
+              "type": "changeSpeed",
+              "speed": 1
+            },
+            {
+              "type": "updateBooleanState",
+              "state": "didHighFive",
+              "value": false
+            }
+          ]
+        },
+        {
+          "start": "00:35:47",
+          "predefined": "haveDoneEnoughOfTheExcersise"
+        },
+        {
+          "end": "00:36:17",
+          "predefined": "useStopResponseToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsUpToStopExcersise"
+        },
+        {
+          "predefined": "giveThumbsDownToContinueExcersise"
+        },
+        {
+          "start": "00:36:41.5",
+          "predefined": "changeToStripScene"
         }
       ]
     },
@@ -910,6 +1348,24 @@
   ],
   "shapes": [
     {
+      "id": "test",
+      "type": "circle",
+      "isVisible": false,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0,
+          "y": 0,
+          "z": 0.6,
+          "size": 0.2,
+          "text": "Test"
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
       "id": "excersise_1",
       "type": "circle",
       "keyframes": [
@@ -918,7 +1374,16 @@
           "x": -1,
           "y": 0,
           "z": 1.5,
-          "size": 0.5
+          "size": 0.5,
+          "text": "Shoulders & Back"
+        },
+        {
+          "time": "00:13:07",
+          "text": "Core"
+        },
+        {
+          "time": "00:25:06",
+          "text": "Shoulders"
         },
         {
           "time": "02:00:00"
@@ -934,7 +1399,16 @@
           "x": 1,
           "y": 0,
           "z": 1.5,
-          "size": 0.5
+          "size": 0.5,
+          "text": "Legs"
+        },
+        {
+          "time": "00:13:07",
+          "text": "Core & Legs"
+        },
+        {
+          "time": "00:25:06",
+          "text": "Shoulders"
         },
         {
           "time": "02:00:00"
@@ -950,7 +1424,16 @@
           "x": -1,
           "y": -0.8,
           "z": 1.5,
-          "size": 0.5
+          "size": 0.5,
+          "text": "Core"
+        },
+        {
+          "time": "00:13:07",
+          "text": "Legs"
+        },
+        {
+          "time": "00:25:06",
+          "text": "Back"
         },
         {
           "time": "02:00:00"
@@ -966,7 +1449,49 @@
           "x": 1,
           "y": -0.8,
           "z": 1.5,
-          "size": 0.5
+          "size": 0.5,
+          "text": "Core"
+        },
+        {
+          "time": "00:13:07",
+          "text": "Shoulders & Back"
+        },
+        {
+          "time": "00:25:06",
+          "text": "Legs"
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "high_five_VR",
+      "type": "circle",
+      "isVisible": false,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0.21,
+          "y": 0.00,
+          "z": 0.4,
+          "size": 0.22
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "high_five_2D",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0.22,
+          "y": 0.00,
+          "z": 0.33,
+          "size": 0.15
         },
         {
           "time": "02:00:00"
