@@ -1,0 +1,1947 @@
+{
+  "files": {
+    "videoSettings": {
+      "degrees": 180,
+      "stereoLayout": "side_by_side",
+      "isFisheye": false,
+      "is2DAvailable": false,
+      "areCameraLensesVisible": false
+    },
+    "videos": [
+      {
+        "source": "XPVR0020_Mia_Blow_Truth_or_dare_4K.mp4",
+        "quality": "4K",
+        "is2D": false
+      }
+    ],
+    "overlayVideos": [],
+    "sounds": [],
+    "music": []
+  },
+  "postProcessing": [],
+  "states": {
+    "shouldSkipCards": true,
+    "randomCardsPicked": 0,
+    "nextPlayer1Card": 0,
+    "nextPlayer2Card": 0,
+    "totalExtendedFingersDuration": 0
+  },
+  "predefinedEvents": {
+    "changeToNextScene": {
+      "outputs": [
+        {
+          "type": "changeScene",
+          "scene": "next",
+          "duration": 400
+        }
+      ]
+    },
+    "updateNextPlayer1Card": {
+      "outputs": [
+        {
+          "type": "updateNumberState",
+          "state": "nextPlayer1Card",
+          "value": "random(player1Card, 6)"
+        }
+      ]
+    },
+    "nextPlayer1Turn": {
+      "outputs": [
+        {
+          "condition": "randomCardsPicked === 13",
+          "type": "changeScene",
+          "scene": "game_done",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 0",
+          "type": "changeScene",
+          "scene": "p1_card_9",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 1",
+          "type": "changeScene",
+          "scene": "p1_card_11",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 2",
+          "type": "changeScene",
+          "scene": "p1_card_13",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 3",
+          "type": "changeScene",
+          "scene": "p1_card_16",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 4",
+          "type": "changeScene",
+          "scene": "p1_card_18",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer1Card === 5",
+          "type": "changeScene",
+          "scene": "p1_card_21",
+          "duration": 400
+        }
+      ]
+    },
+    "nextPlayer2Turn": {
+      "outputs": [
+        {
+          "condition": "nextPlayer2Card === 0",
+          "type": "changeScene",
+          "scene": "p2_card_8",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 1",
+          "type": "changeScene",
+          "scene": "p2_card_10",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 2",
+          "type": "changeScene",
+          "scene": "p2_card_12",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 3",
+          "type": "changeScene",
+          "scene": "p2_card_14",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 4",
+          "type": "changeScene",
+          "scene": "p2_card_15",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 5",
+          "type": "changeScene",
+          "scene": "p2_card_17",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 6",
+          "type": "changeScene",
+          "scene": "p2_card_19",
+          "duration": 400
+        },
+        {
+          "condition": "nextPlayer2Card === 7",
+          "type": "changeScene",
+          "scene": "p2_card_20",
+          "duration": 400
+        }
+      ]
+    },
+    "pointAtCardsToPickNextCard": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "cards"
+      },
+      "outputs": [
+        {
+          "type": "changeScene",
+          "tag": "pick_card",
+          "duration": 400
+        }
+      ]
+    },
+    "respondNoToStopPlaying": {
+      "input": {
+        "type": "response",
+        "response": "no"
+      },
+      "outputs": [
+        {
+          "type": "changeScene",
+          "scene": "stop_playing"
+        }
+      ]
+    },
+    "useStopToChangeToNextScene": {
+      "input": {
+        "type": "response",
+        "response": "stop"
+      },
+      "outputs": [
+        {
+          "type": "changeScene",
+          "scene": "next",
+          "duration": 400
+        }
+      ]
+    },
+    "pause": {
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 0
+        }
+      ]
+    },
+    "resume": {
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ]
+    },
+    "pointAtOption1ToContinue": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "option_1"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ]
+    },
+    "pointAtOption2ToContinue": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "option_2"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ]
+    },
+    "pointAtOption3ToContinue": {
+      "input": {
+        "type": "shape",
+        "input": "point",
+        "shape": "option_3"
+      },
+      "outputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 1
+        }
+      ]
+    }
+  },
+  "predefinedOutputs": {
+    "resume": {
+      "type": "changeSpeed",
+      "speed": 1
+    },
+    "incrementRandomCardsPicked": {
+      "type": "updateNumberState",
+      "state": "randomCardsPicked",
+      "value": "randomCardsPicked + 1"
+    },
+    "updateNextPlayer1Card": {
+      "type": "updateNumberState",
+      "state": "nextPlayer1Card",
+      "value": "random(player1Card, 6)"
+    },
+    "updateNextPlayer2Card": {
+      "type": "updateNumberState",
+      "state": "nextPlayer2Card",
+      "value": "random(player2Card, 8)"
+    },
+    "resetNextPlayer1CardRandomizer": {
+      "type": "updateNumberState",
+      "state": "nextPlayer1Card",
+      "value": "random(player1Card, 1)"
+    },
+    "resetNextPlayer2CardRandomizer": {
+      "type": "updateNumberState",
+      "state": "nextPlayer2Card",
+      "value": "random(player2Card, 1)"
+    }
+  },
+  "scenes": [
+    {
+      "name": "intro",
+      "start": "00:00:00",
+      "end": "00:00:45",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "changeToNextScene",
+          "start": "00:00:44"
+        }
+      ]
+    },
+    {
+      "name": "option_3_game",
+      "start": "00:01:14.5",
+      "end": "00:01:16"
+    },
+    {
+      "name": "game_introduction",
+      "start": "00:01:16",
+      "end": "00:02:09",
+      "events": [
+        {
+          "predefined": "changeToNextScene",
+          "start": "00:02:05.7"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_1",
+      "start": "00:02:10.45",
+      "end": "00:03:14.5",
+      "tags": [
+        "pick_card"
+      ],
+      "events": [
+        {
+          "predefined": "pointAtCardsToPickNextCard",
+          "start": "00:02:21"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_2",
+      "start": "00:03:14.5",
+      "end": "00:03:53",
+      "tags": [
+        "pick_card"
+      ],
+      "events": [
+        {
+          "condition": "shouldSkipCards === true",
+          "start": "00:03:30",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "cards"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "next"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_2_end",
+      "start": "00:03:53",
+      "end": "00:04:15",
+      "events": [
+        {
+          "condition": "shouldSkipCards === false",
+          "predefined": "changeToNextScene",
+          "start": "00:04:13.5"
+        },
+        {
+          "condition": "shouldSkipCards === true",
+          "start": "00:04:12",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p1_card_5",
+              "duration": 400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p1_card_3",
+      "start": "00:04:17.5",
+      "end": "00:04:56",
+      "tags": [
+        "pick_card"
+      ],
+      "events": [
+        {
+          "predefined": "pointAtCardsToPickNextCard",
+          "start": "00:04:27"
+        },
+        {
+          "predefined": "changeToNextScene",
+          "start": "00:04:55"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_4",
+      "start": "00:04:56",
+      "end": "00:05:36",
+      "tags": [
+        "pick_card"
+      ],
+      "events": [
+        {
+          "predefined": "pointAtOption1ToContinue",
+          "start": "00:05:11",
+          "end": "00:05:13.2"
+        },
+        {
+          "predefined": "pointAtOption2ToContinue",
+          "start": "00:05:11.2",
+          "end": "00:05:13.2"
+        },
+        {
+          "predefined": "pointAtOption3ToContinue",
+          "start": "00:05:11.4",
+          "end": "00:05:13.2"
+        },
+        {
+          "predefined": "pointAtCardsToPickNextCard",
+          "start": "05:24"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:05:13"
+        },
+        {
+          "predefined": "resume",
+          "time": "00:05:13.2"
+        },
+        {
+          "predefined": "changeToNextScene",
+          "start": "00:05:35.5"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_5",
+      "start": "05:38.5",
+      "end": "06:38",
+      "tags": [
+        "pick_card"
+      ],
+      "events": [
+        {
+          "predefined": "pointAtCardsToPickNextCard",
+          "start": "05:42",
+          "end": "05:50"
+        },
+        {
+          "predefined": "useStopToChangeToNextScene",
+          "start": "06:30"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_5_end",
+      "start": "06:38",
+      "end": "07:06.5",
+      "events": [
+        {
+          "predefined": "changeToNextScene",
+          "start": "07:06"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_6",
+      "start": "07:06.8",
+      "end": "08:19",
+      "tags": [
+        "pick_card"
+      ]
+    },
+    {
+      "name": "p1_card_7",
+      "start": "08:19",
+      "end": "08:26",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "changeToNextScene",
+          "start": "08:25"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_7_continue",
+      "start": "08:26.7",
+      "end": "09:49",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "start": "08:29",
+          "end": "08:53",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "cards"
+          }
+        },
+        {
+          "predefined": "useStopToChangeToNextScene",
+          "start": "09:20"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_7_end",
+      "start": "09:49",
+      "end": "10:11",
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "start": "10:10"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_8",
+      "start": "10:13.5",
+      "end": "10:55",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "pointAtOption1ToContinue",
+          "start": "00:10:25.6",
+          "end": "00:10:26.2"
+        },
+        {
+          "predefined": "pointAtOption2ToContinue",
+          "start": "00:10:25.8",
+          "end": "00:10:26.2"
+        },
+        {
+          "predefined": "pointAtOption3ToContinue",
+          "start": "00:10:26",
+          "end": "00:10:26.2"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:10:26"
+        },
+        {
+          "predefined": "resume",
+          "time": "00:10:26.2"
+        },
+        {
+          "predefined": "nextPlayer1Turn",
+          "start": "10:54"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_9",
+      "start": "10:56.8",
+      "end": "11:25.5",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_9_loop",
+      "start": "11:25.5",
+      "end": "11:47.5",
+      "loop": true,
+      "events": [
+        {
+          "predefined": "changeToNextScene",
+          "condition": "systemIsVR",
+          "input": {
+            "type": "shape",
+            "shape": "ass_vr",
+            "input": "touch",
+            "trigger": "start"
+          }
+        },
+        {
+          "predefined": "changeToNextScene",
+          "condition": "systemIs2D",
+          "input": {
+            "type": "shape",
+            "shape": "ass_2d",
+            "input": "point",
+            "trigger": "start"
+          }
+        }
+      ]
+    },
+    {
+      "name": "p1_card_9_end",
+      "start": "00:11:47.55",
+      "end": "00:12:18",
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:12:14"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:12:14"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:12:17"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_10",
+      "start": "00:12:20.2",
+      "end": "00:12:48",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "useStopToChangeToNextScene",
+          "start": "00:12:32"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_10_end",
+      "start": "00:12:48",
+      "end": "00:13:06",
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:13:04"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:13:04"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:13:05.5"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_11",
+      "start": "00:13:08",
+      "end": "00:14:58",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:14:54"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:14:54"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:14:57.5"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_12",
+      "start": "00:14:59.5",
+      "end": "15:18",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "pause",
+          "time": "00:15:16.5"
+        },
+        {
+          "time": "00:15:13",
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR",
+          "start": "00:15:13",
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "totalExtendedFingersDuration + systemDeltaTime"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR",
+          "start": "00:15:13",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change"
+          },
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR && totalExtendedFingersDuration > 2",
+          "start": "00:15:13",
+          "outputs": [
+            {
+              "condition": "systemTotalExtendedFingers >= 1 && systemTotalExtendedFingers <= 3",
+              "type": "changeScene",
+              "scene": "p2_card_12_1_to_3_fingers"
+            },
+            {
+              "condition": "systemTotalExtendedFingers >= 4 && systemTotalExtendedFingers <= 6",
+              "type": "changeScene",
+              "scene": "p2_card_12_4_to_6_fingers"
+            },
+            {
+              "condition": "systemTotalExtendedFingers >= 7",
+              "type": "changeScene",
+              "scene": "p2_card_12_7_to_10_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:15:13",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMax": 3
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_1_to_3_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:15:13",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMin": 4,
+            "fingerCountMax": 6
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_4_to_6_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:15:13",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMin": 7
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_7_to_10_fingers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_12_1_to_3_fingers",
+      "start": "00:15:21",
+      "end": "00:15:31",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:15:30.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_12_4_to_6_fingers",
+      "start": "00:15:33",
+      "end": "00:15:40",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:15:39.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_12_7_to_10_fingers",
+      "start": "00:15:42.2",
+      "end": "00:15:54",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:15:53.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_12_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_12_end",
+      "start": "00:15:58",
+      "end": "00:16:11",
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "start": "00:16:10.5"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_13",
+      "start": "00:16:12.8",
+      "end": "00:18:03",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:18:00"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:18:00"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:18:02"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_14",
+      "start": "00:18:06",
+      "end": "00:19:57.5",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:19:53"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:19:53"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:19:57"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_15",
+      "start": "00:20:01",
+      "end": "00:20:49",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:20:46"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:20:46"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:20:48"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_16",
+      "start": "00:20:51.7",
+      "end": "00:22:11",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:22:08"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:22:08"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:22:10"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_17",
+      "start": "00:22:13",
+      "end": "00:24:00",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:23:56"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:23:56"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:23:59"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_18",
+      "start": "00:24:04",
+      "end": "00:24:34",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:24:31"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:24:31"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:24:33"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_19",
+      "start": "00:24:35.8",
+      "end": "00:25:33.5",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "time": "00:25:30",
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR",
+          "start": "00:25:30",
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "totalExtendedFingersDuration + systemDeltaTime"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR",
+          "start": "00:25:30",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change"
+          },
+          "outputs": [
+            {
+              "type": "updateNumberState",
+              "state": "totalExtendedFingersDuration",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "condition": "systemIsVR && totalExtendedFingersDuration > 2",
+          "start": "00:25:30",
+          "outputs": [
+            {
+              "condition": "systemTotalExtendedFingers >= 1 && systemTotalExtendedFingers <= 4",
+              "type": "changeScene",
+              "scene": "p2_card_19_1_to_4_fingers"
+            },
+            {
+              "condition": "systemTotalExtendedFingers >= 5 && systemTotalExtendedFingers <= 8",
+              "type": "changeScene",
+              "scene": "p2_card_19_5_to_8_fingers"
+            },
+            {
+              "condition": "systemTotalExtendedFingers >= 9",
+              "type": "changeScene",
+              "scene": "p2_card_19_9_to_10_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:25:30",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMax": 4
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_1_to_4_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:25:30",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMin": 5,
+            "fingerCountMax": 8
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_5_to_8_fingers"
+            }
+          ]
+        },
+        {
+          "condition": "systemIs2D",
+          "start": "00:25:30",
+          "input": {
+            "type": "fingerCount",
+            "trigger": "change",
+            "fingerCountMin": 9
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_9_to_10_fingers"
+            }
+          ]
+        },
+        {
+          "predefined": "pause",
+          "time": "00:25:33"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_19_1_to_4_fingers",
+      "start": "00:25:35",
+      "end": "00:25:42",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:25:41.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_19_5_to_8_fingers",
+      "start": "00:25:45",
+      "end": "00:25:53",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:25:52.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_19_9_to_10_fingers",
+      "start": "00:25:55.5",
+      "end": "00:26:05",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:26:04.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "p2_card_19_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p2_card_19_end",
+      "start": "00:26:07",
+      "end": "00:26:21.5",
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:26:19.5"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:26:19.5"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:26:21"
+        }
+      ]
+    },
+    {
+      "name": "p2_card_20",
+      "start": "00:26:23.5",
+      "end": "00:26:56.5",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer1Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer1Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:26:53"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:26:53"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:26:56"
+        }
+      ]
+    },
+    {
+      "name": "p1_card_21",
+      "start": "00:26:58.2",
+      "end": "00:27:40",
+      "tags": [
+        "pick_card"
+      ],
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        },
+        {
+          "predefined": "incrementRandomCardsPicked"
+        }
+      ],
+      "events": [
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "response",
+            "response": "yes"
+          },
+          "start": "00:27:37"
+        },
+        {
+          "predefined": "respondNoToStopPlaying",
+          "start": "00:27:37"
+        },
+        {
+          "predefined": "pause",
+          "time": "00:27:39"
+        }
+      ]
+    },
+    {
+      "name": "stop_playing",
+      "start": "00:27:41.5",
+      "end": "00:28:26",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:28:23",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_1"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_1",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "start": "00:28:23",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_2"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_2",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "start": "00:28:23",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_3"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_3",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "predefined": "pause",
+          "time": "00:28:25"
+        }
+      ]
+    },
+    {
+      "name": "game_done",
+      "start": "00:28:27",
+      "end": "00:28:56",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:28:54.8",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_1"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_1",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "start": "00:28:54.8",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_2"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_2",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "start": "00:28:54.8",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "last_card_3"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "s_last_card_3",
+              "transition": "fadeToBlack",
+              "duration": 400
+            }
+          ]
+        },
+        {
+          "predefined": "pause",
+          "time": "00:28:55.8"
+        }
+      ]
+    },
+    {
+      "name": "s_last_card_1",
+      "start": "00:28:57.7",
+      "end": "00:42:16",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:42:15",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "ending",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "s_last_card_2",
+      "start": "00:42:19.4",
+      "end": "00:54:20.5",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "00:54:19.5",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "ending",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "s_last_card_3",
+      "start": "00:54:23",
+      "end": "01:22:35",
+      "enterOutputs": [
+        {
+          "predefined": "resume"
+        }
+      ],
+      "events": [
+        {
+          "start": "01:22:34",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "ending",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ending",
+      "start": "01:22:38",
+      "end": "01:23:13",
+      "events": [
+        {
+          "start": "01:23:11",
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "end",
+              "transition": "fadeToBlack",
+              "duration": 1800
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "end",
+      "start": "00:16:11.6",
+      "end": "00:16:12.5",
+      "enterOutputs": [
+        {
+          "type": "changeSpeed",
+          "speed": 0
+        },
+        {
+          "type": "updateNumberState",
+          "state": "randomCardsPicked",
+          "value": "0"
+        },
+        {
+          "predefined": "resetNextPlayer1CardRandomizer"
+        },
+        {
+          "predefined": "resetNextPlayer2CardRandomizer"
+        },
+        {
+          "predefined": "updateNextPlayer2Card"
+        }
+      ],
+      "events": [
+        {
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "option_1"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "intro",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        },
+        {
+          "predefined": "nextPlayer2Turn",
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "option_2"
+          }
+        },
+        {
+          "input": {
+            "type": "shape",
+            "input": "point",
+            "shape": "option_3"
+          },
+          "outputs": [
+            {
+              "type": "changeScene",
+              "scene": "game_done",
+              "transition": "fadeToBlack",
+              "duration": 2000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shapes": [
+    {
+      "id": "cards",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -0.08,
+          "y": -0.50,
+          "z": 0.65,
+          "size": 0.2
+        },
+        {
+          "time": "00:04:17"
+        },
+        {
+          "time": "00:04:17",
+          "x": -0.14,
+          "y": -0.52,
+          "z": 0.70
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "option_1",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -0.8,
+          "y": -0.25,
+          "z": 1.5,
+          "size": 0.5,
+          "text": "Foreplay"
+        },
+        {
+          "time": "00:10:13"
+        },
+        {
+          "time": "00:10:13",
+          "text": "Missionary"
+        },
+        {
+          "time": "00:16:11"
+        },
+        {
+          "time": "00:16:11",
+          "text": "Play from the beginning"
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "option_2",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0,
+          "y": -0.25,
+          "z": 1.5,
+          "size": 0.5,
+          "text": "Oral"
+        },
+        {
+          "time": "00:10:13"
+        },
+        {
+          "time": "00:10:13",
+          "text": "Doggy Style"
+        },
+        {
+          "time": "00:16:11"
+        },
+        {
+          "time": "00:16:11",
+          "text": "Start after undressing"
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "option_3",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0.8,
+          "y": -0.25,
+          "z": 1.5,
+          "size": 0.5,
+          "text": "Intercourse"
+        },
+        {
+          "time": "00:10:13"
+        },
+        {
+          "time": "00:10:13",
+          "text": "Cowgirl"
+        },
+        {
+          "time": "00:16:11"
+        },
+        {
+          "time": "00:16:11",
+          "text": "Start from last 3 cards"
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "ass_vr",
+      "type": "circle",
+      "isVisible": false,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0.00,
+          "y": -0.09,
+          "z": 0.64,
+          "size": 0.3
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "ass_2d",
+      "type": "circle",
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": 0.00,
+          "y": -0.09,
+          "z": 0.64,
+          "size": 0.3
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "last_card_1",
+      "type": "circle",
+      "isVisible": true,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -0.19,
+          "y": -0.09,
+          "z": 0.45,
+          "size": 0.08
+        },
+        {
+          "time": "00:28:27"
+        },
+        {
+          "time": "00:28:27",
+          "x": -0.15,
+          "y": -0.06,
+          "z": 0.45
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "last_card_2",
+      "type": "circle",
+      "isVisible": true,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -0.09,
+          "y": -0.09,
+          "z": 0.44,
+          "size": 0.08
+        },
+        {
+          "time": "00:28:27"
+        },
+        {
+          "time": "00:28:27",
+          "x": -0.05,
+          "y": -0.06,
+          "z": 0.44
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    },
+    {
+      "id": "last_card_3",
+      "type": "circle",
+      "isVisible": true,
+      "keyframes": [
+        {
+          "time": "00:00:00",
+          "x": -0.01,
+          "y": -0.09,
+          "z": 0.45,
+          "size": 0.08
+        },
+        {
+          "time": "00:28:27"
+        },
+        {
+          "time": "00:28:27",
+          "x": 0.05,
+          "y": -0.06,
+          "z": 0.45
+        },
+        {
+          "time": "02:00:00"
+        }
+      ]
+    }
+  ]
+}
